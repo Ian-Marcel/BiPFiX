@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #023047
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #282829;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 40px;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 5px
+}
+
+.container-input2 {
+    display: flex;
+    align-items: center;
+}
+
+.areaLogin img {
+    width: 420px;
+}
+
+.formLogin h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.3em;
+}
+
+.formLogin p {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.input-field {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.formLogin input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+.formLogin input:focus {
+    border: 1px solid #ffa51e;
+    transition: box-shadow 0.3s ease;
+}
+
+.input-field:focus, .input-field:valid, .input-field:invalid {
+    border-color: #ccc;
+}
+
+.input-field:focus, .input-field:valid {
+    animation: input-succes 0.5s; /*só adicionar mais um "s" para formar a plavra "success" certinho para ter um efeito de expansão*/
+}
+
+
+.input-field:focus, .input-field:valid {
+    box-shadow: 0 0 5px #ffa51e;
+}
+
+.formLogin label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formLogin a {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #555;
+    transition: all linear 160ms;
+}
+
+.formLogin a:hover {
+    color: #ff9900;
+}
+
+.show-password-toggle {
+    position: relative;
+}
+
+.show-password-toggle input[type="password"] {
+    padding-right: 30px;
+}
+
+.show-password-toggle .show-password-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-90%);
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #ffa51e !important;
+    color: #fff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    transition: all linear 160ms !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+
+}
+
+.btn:hover {
+    transform: scale(1.05) !important;
+    background-color: #db8708 !important;
+}
+
+@keyframes input-success {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+}

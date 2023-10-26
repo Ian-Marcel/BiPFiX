@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    text-decoration: none;
+    background-color: #252A34;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.summarybox{
+    background-color: #ffffff;
+    width: 280px;
+    max-width: 300px;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 500px;
+    padding: 20px 24px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+h5{
+    margin: 0px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.334;
+    letter-spacing: 0em;
+}
+
+.lista{
+    list-style: none;
+    margin: 0px;
+    padding: 8px 0px;
+    position: relative;
+}
+
+.generalli{
+    display: flex;
+    -moz-box-pack: start;
+    justify-content: flex-start;
+    -moz-box-align: center;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding: 4px 16px;
+}
+
+.icon{
+    min-width: 56px;
+    color: rgba(0, 0, 0, 0.54);
+    flex-shrink: 0;
+    display: inline-flex
+}
+
+i{
+    user-select: none;
+    display: inline-block;
+    fill: currentcolor;
+    flex-shrink: 0;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-size: 20px;
+}
+
+.textinside{
+    flex: 1 1 auto;
+    min-width: 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.spanback{
+    margin: 0px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    display: block;
+    font-size: 14px;
+}
+
+.generaltext{
+    margin: 0px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    color: rgba(0, 0, 0, 0.6);
+    display: block;
+    font-size: 12px;
+}
+
+.linha{
+    margin: 0px;
+    flex-shrink: 0;
+    border-width: 0px 0px thin;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+.textinsidedif{
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+.textinsidedouble {
+    box-sizing: border-box;
+    margin: 0px;
+    flex-direction: row;
+    flex-basis: 50%;
+    -moz-box-flex: 0;
+    flex-grow: 0;
+    max-width: 50%;
+}
+
+@media (min-width: 1200px){
+.textinsidedouble{
+  flex-basis: 50%;
+  -moz-box-flex: 0;
+  flex-grow: 0;
+  max-width: 50%;
+}
+}
+
+@media (min-width: 900px){
+.textinsidedouble{
+  flex-basis: 50%;
+  -moz-box-flex: 0;
+  flex-grow: 0;
+  max-width: 50%;
+}
+}
+
+@media (min-width: 600px){
+.textinsidedouble{
+  flex-basis: 50%;
+  -moz-box-flex: 0;
+  flex-grow: 0;
+  max-width: 50%;
+}
+}
