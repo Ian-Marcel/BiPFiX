@@ -1,5 +1,133 @@
-/** Hello CSS*/
-body {
-margin: 0px;
+body{
+    background-color: #252A34;
+    font-family: 'Montserrat', sans-serif;
+}
+.menu-lateral {
+    display: flex;
+    width: 9%;
+    height: auto;
+    position: absolute;
+    position: fixed;
+    top: 30%;
+    left: 4%;
+    overflow: hidden;
+    background-color: #424A53; 
+    border-radius: 25px;
+    padding: 20px 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
 
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral li {
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 18px;
+    position: relative;
+}
+
+.menu-lateral i {
+    font-size: 35px;
+    transform: 0.3s;
+}
+
+.menu-item:hover i {
+    transform: scale(1.2); 
+}
+
+.menu-item.active i {
+    transform: scale(1.2); 
+}
+
+.menu-item span {
+    display: none; 
+}
+
+.menu-item.active span {
+    display: block; 
+}
+.caixaprincipal{
+    height: auto;
+    padding: 20px;
+    width: 90vw;
+    background-color: #252A34;
+    display: flex;
+}
+.caixadomercado{
+    width: 90%;
+    position: relative;
+    left: 16.5%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+}
+.mercadocima{
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0px 0px;
+    margin-top: 1vh;
+    padding-bottom: 1vh;
+    padding: 10px 0;
+    background-color: #424A53; 
+    padding-top: 1vh;
+    color: #f2f2f2; 
+    display: flex;
+    justify-content: center;
+}
+.mercadobaixo{
+    width: 97,8%;
+    margin-top: 1%;
+    position: relative;
+    background-color: #383e4a; 
+    display: flex;
+    gap: 15px; 
+    padding: 20px; 
+    height: auto;
+}
+.colunas{
+    display: flex;
+    gap: 10px;
+    background-color: #000000; 
+    height: auto;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+    color: #FFFFFF;
+    gap: 10px;
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 10px;
+}
+.buttoncompraevenda{
+    background-color: #f7f7f7; 
+    color: #1a1a1a; 
+    font-family: montserrat;
+    font-size: 15px;
+    border: 2px solid black;
+    border-radius: 20px 0px 0px 20px; 
+    padding: 10px 20px; 
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /
+}
+.buttoncompraevenda:hover{
+    background-color: #000000; 
+    color: white;
+    border: 2px solid white;
+    transform: scale(1.1);
+    transition: .3s ease;
+    cursor: pointer;
 }
