@@ -18,69 +18,57 @@
         </ul>
     </div>
 
-    <div class="container">
-        <div class="faqbox">
-            <div class="faq-item">
-                <h4>O que é BiPFiX?</h4>
-                <div class="textp">
+<div class="container">
+    <div class="faqbox">
+        <div class="faq-item">
+            <h4>O que é BiPFiX?</h4>
+            <div class="textp">
+                <p>
+                    A BiPFiX propõe uma troca de pessoa para pessoa de BTC/R$ (Bitcoin para Real) baseada em Lightning. Ela simplifica o emparelhamento e minimiza a necessidade de confiança. BiPFiX foca na privacidade e na velocidade.
+                </p>
+            </div>
+            <div class="outside">
+                <div class="outinside">
+                    <div class="textoutside">
+                        <p class="poutside">Como funciona?</p>
+                    </div>
+                    <div class="icon"><i class="fa-solid fa-angle-down"></i></div>
+                </div>
+                <div class="textinside" style="display: none;">
                     <p>
-                        A BiPFiX propõe uma troca de pessoa para pessoa de BTC/R$ (Bitcoin para Real) baseada em Lightning. Ela simplifica o emparelhamento e minimiza a necessidade de confiança. BiPFiX foca na privacidade e na velocidade.
+                        AnonymousAlice01 quer vender bitcoin. Ela publica uma ordem de venda. BafflingBob02 quer comprar bitcoin e anota o pedido de Alice. Ambos precisam postar um pequeno vínculo usando um raio para provar que são robôs reais. Em seguida, Alice lança a garantia comercial também usando uma fatura relâmpago. RoboSats bloqueia a fatura até que Alice confirme que recebeu o decreto, então os satoshis são liberados para Bob. Aproveite seus satoshis, Bob!
+                    </p>
+                    <br>
+                    <p>
+                        Em nenhum momento, AnonymousAlice01 e BafflingBob02 precisam confiar os fundos de bitcoin um ao outro. Caso haja um conflito, a equipe da BiPFiX ajudará a resolver a disputa. Você pode encontrar uma descrição passo a passo do pipeline comercial em Como funciona. Você também pode conferir o guia completo em Como usar.
                     </p>
                 </div>
-                <div class="outside">
-                    <div class="outinside">
-                        <div class="textoutside">
-                            <p class="poutside">Como funciona?</p>
-                        </div>
-                        <div class="icon"><i class="fa-solid fa-angle-down"></i></div>
-                    </div>
-                    <div class="textinside" style="display: none;">
-                        <div class="textinside1">
-                            <div class="textinside2">
-                                <div class="textinside3">
-                                <div class="textinside4">
-                                    <div class="textinside5">
-                                        <p>
-                                        AnonymousAlice01 quer vender bitcoin. Ela publica uma ordem de venda. BafflingBob02 quer comprar bitcoin e anota o pedido de Alice. Ambos precisam postar um pequeno vínculo usando um raio para provar que são robôs reais. Em seguida, Alice lança a garantia comercial também usando uma fatura relâmpago. RoboSats bloqueia a fatura até que Alice confirme que recebeu o decreto, então os satoshis são liberados para Bob. Aproveite seus satoshis, Bob!                                        </p>
-                                        <br>
-                                        <p>
-                                        Em nenhum momento, AnonymousAlice01 e BafflingBob02 precisam confiar os fundos de bitcoin um ao outro. Caso haja um conflito, a equipe da BiPFiX ajudará a resolver a disputa. Você pode encontrar uma descrição passo a passo do pipeline comercial em Como funciona. Você também pode conferir o guia completo em Como usar.                                        </p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <!-- 
-                            <div class="faq-item">
-                <div class="outside">
-                    <div class="outinside">
-                        <div class="textoutside">
-                            <p class="poutside">Como funciona?</p>
-                        </div>
-                        <div class="icon"><i class="fa-solid fa-angle-down"></i></div>
-                    </div>
-                    <div class="textinside" style="display: none;">
-                        <div class="textinside1">
-                            <div class="textinside2">
-                                <div class="textinside4">
-                                    <div class="textinside5">
-                                        <p>
-                                            Sua nova resposta detalhada.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            -->
         </div>
     </div>
-    <script src="faq.js"></script>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    $(".faq-item").click(function (event) {
+        var container = $(this);
+        var answer = container.find(".textinside");
+
+        if (container.hasClass("expanded")) {
+            if (!$(event.target).closest(".textinside").length) {
+                answer.slideUp();
+                container.removeClass("expanded");
+                container.find(".icon i").removeClass("fa-rotate-180");
+            }
+        } else {
+            answer.slideDown();
+            container.addClass("expanded");
+            container.find(".icon i").addClass("fa-rotate-180");
+        }
+    });
+});
+</script>
+
 </body>
 </html>
