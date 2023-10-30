@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <body>
     <div class="page">
-        <form action="login.php" method="POST" class="formLogin">
+        <form action="../Conta/" method="POST" class="formLogin">
         <h1>Login</h1>
         <p>Digite os seus dados de acesso no campo abaixo.</p>
             <label for="username"><i class="fa-solid fa-user"></i> Nome de Identificação</label>

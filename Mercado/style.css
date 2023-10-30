@@ -4,7 +4,7 @@ body{
 }
 .menu-lateral {
     display: flex;
-    width: 9%;
+    width: 120px;
     height: auto;
     position: absolute;
     position: fixed;
@@ -38,26 +38,7 @@ body{
     position: relative;
 }
 
-.menu-lateral i {
-    font-size: 35px;
-    transform: 0.3s;
-}
 
-.menu-item:hover i {
-    transform: scale(1.2); 
-}
-
-.menu-item.active i {
-    transform: scale(1.2); 
-}
-
-.menu-item span {
-    display: none; 
-}
-
-.menu-item.active span {
-    display: block; 
-}
 .caixaprincipal{
     height: auto;
     padding: 20px;

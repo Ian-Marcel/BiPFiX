@@ -15,11 +15,11 @@
         <div class="lateralbox">
             <div class="menu-lateral">
                 <ul>
-                    <li><a href="#" class="menu-item"><i class="fas fa-home"></i><span>Home</span></a></li>
-                    <li><a href="#" class="menu-item"><i class="fas fa-user"></i><span>Perfil</span></a></li>
-                    <li><a href="#" class="menu-item"><i class="fas fa-cog"></i><span>Ordens</span></a></li>
-                    <li><a href="#" class="menu-item"><i class="fas fa-envelope"></i><span>ABC</span></a></li>
-                    <li><a href="#" class="menu-item"><i class="fas fa-chart-bar"></i><span>outros</span></a></li>
+                    <li><a href="../Mais/" class="menu-item"><img src="../Ícones/Mais.png"></a></li>
+                    <li><a href="../Suas Ordens/" class="menu-item"><img src="../Ícones/Suas ordens.png"></a></li>
+                    <li><a href="#" class="menu-item"><img src="../Ícones/Criar ordem.png"></a><span style="font-family: montserrat; font-size: 15px; color:white; padding-top: 10px;">Criar Ordem</span></li>
+                    <li><a href="../Mercado/" class="menu-item"><img src="../Ícones/Mercado.png"></a></li>
+                    <li><a href="../Conta/" class="menu-item"><img src="../Ícones/Conta.png"></a></li>
                 </ul>
             </div>
         </div>
@@ -29,8 +29,8 @@
                     Compra
                 </button>                  
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item verde" href="#">Compra</a></li>
-                  <li><a class="dropdown-item vermelho" href="#">Venda</a></li>
+                    <li><a class="dropdown-item verde" href="#">Compra</a></li>
+                <li><a class="dropdown-item vermelho" href="#">Venda</a></li>
                 </ul>
             </div>
             <div class="container-fluid container1 my-5">
@@ -54,30 +54,5 @@
         </div>
     </div>
     </main>
-    <script>
-        const menuItems = document.querySelectorAll('.menu-item');
-
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-
-                menuItems.forEach(i => i.classList.remove('active'));
-
-                item.classList.add('active');
-            });
-        });
-        const dropdownButton = document.querySelector('.dropdown button');
-        const dropdownItems = document.querySelectorAll('.dropdown-item');
-
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', () => {
-                dropdownItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-                const optionText = item.textContent;
-                dropdownButton.textContent = optionText;
-                dropdownButton.classList.remove('verde', 'vermelho'); // Limpa as classes anteriores
-                dropdownButton.classList.add(item.classList[1]); // Adiciona a classe correspondente à cor
-            });
-        });
-    </script>
 </body>
 </html>

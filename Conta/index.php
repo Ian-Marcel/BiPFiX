@@ -15,11 +15,11 @@
     <div class="caixazona">
     <div style="border: 0px; background-color: #424A53;" class="menu-lateral">
         <ul>
-            <li><a href="#" class="menu-item"><img style="border-radius: 15px; " src="../Ícones/Mais.svg"><span style="font-family: montserrat; font-size: 15px; padding-top: 10px;">Home</span></a></li>
-            <li><a href="#" class="menu-item"><img style="border-radius: 15px; " src="../Ícones/Suas Ordens.svg"><span style="font-family: montserrat; font-size: 15px; padding-top: 10px;">Perfil</span></a></li>
-            <li><a href="#" class="menu-item"><img style="border-radius: 15px; " src="../Ícones/Criar Ordem.svg"><span style="font-family: montserrat; font-size: 15px; padding-top: 10px;">Ordens</span></a></li>
-            <li><a href="#" class="menu-item"><img style="border-radius: 15px; " src="../Ícones/Mercado.svg"><span style="font-family: montserrat; font-size: 15px; padding-top: 10px;">ABC</span></a></li>
-            <li><a href="#" class="menu-item"><img style="border-radius: 15px; " src="../Ícones/Conta.svg"><span style="font-family: montserrat; font-size: 15px; padding-top: 10px;">outros</span></a></li>
+            <li><a href="../Mais/" class="menu-item"><img src="../Ícones/Mais.png"></a></li>
+            <li><a href="../Suas Ordens/" class="menu-item"><img src="../Ícones/Suas ordens.png"></a></li>
+            <li><a href="../Criar Ordem" class="menu-item"><img src="../Ícones/Criar ordem.png"></a></li>
+            <li><a href="../Mercado/" class="menu-item"><img src="../Ícones/Mercado.png"></a></li>
+            <li><a href="#" class="menu-item"><img src="../Ícones/Conta.png"></a><span style="font-family: montserrat; font-size: 15px; color:white; padding-top: 10px;">Conta</span></li>
         </ul>
     </div>
     <div class="caixazonadireita">
@@ -44,23 +44,6 @@
                 comprar ou vender.</h3>
         </div>
 </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    
-setInterval(updateGradient,10);
-    </script>
-<script>
-    const menuItems = document.querySelectorAll('.menu-item');
 
-menuItems.forEach(item => {
-    item.addEventListener('click', () => {
-
-        menuItems.forEach(i => i.classList.remove('active'));
-
-        item.classList.add('active');
-    });
-});
-const dropdownButton = document.querySelector('.dropdown button');
-const dropdownItems = document.querySelectorAll('.dropdown-item');
-</script>
 </body>
 </html>

@@ -24,10 +24,8 @@ body{
 }
 .menu-lateral {
     display: flex;
-    width: 6%;
+    width: 120px;
     height: auto;
-    -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     position: absolute;
     position: fixed;
     top: 30%;
