@@ -2,72 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=], initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/Design/Fonts/Satoshi/css/satoshi.css">
+    <link rel="stylesheet" href="/Design/Fonts/Montserrat/Montserrat.css">
+    <link rel="shortcut icon" href="/Design/Icons/Favicon.ico" type="image/x-icon">
     <title>BiPFiX</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="shortcut icon" href="/Ícones/Fav.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <nav>
+            <h2 class="logo">BiPFiX</h2>
+                <ul>
+                    <li>
+                        <a href="#"><span>Produtos</span></a>
+                    </li>
+                    <li>
+                        <a href="/Documentação/"><span>Documentação</span></a>
+                    </li>
+                    <li class="exept">
+                        <a href="/LogIn/"><b>Faça Log In</b></a>
+                    </li>
+                </ul>
+        </nav>  
+    </header>
+
+    <!-- BANNER "CATCH ATTENTION" + TÍTULO -->
+    <div class="banner">
+        <div class="banner-content">
+            <h1>
+                Segurança Impecável <br>
+                Privacidade Sólida <br>
+                Bitcoin Simplificado<br>
+            </h1>
+            <h1>
+                BiPFiX <br>
+                Sua Melhor Corretora
+            </h1>
+        </div>
+    </div>
+
+    <!-- CONTEÚDO DA LANDING PAGE -->
     <main>
-        <div class="caixatitle"><img  style="animation: scale-in-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            border-radius: 10px; margin-right: 1vh; background-color: rgb(255, 157, 0); height: 280px;" src="Ícones/BITCOIN.png">iPFiX</div>
-        <div class="largo">
-        <a href="/LogIn/"class="entrar">Entrar</a>
+        <div class="content">
+            <h1>Mas antes de nos apresentarmos, <br> uma rápida introdução sobre o Bitcoin</h1>
+            <br>
+            <section class="BTCintro">
+                <div>                
+                    <h2>Por que ele é especial?</h2>
+                    <p>
+                        O Bitcoin é singular graças ao seu fundamento tecnológico, 
+                        o blockchain, que revolucionou as transações financeiras ao eliminar 
+                        intermediários e garantir um sistema transparente e seguro. Sua rede 
+                        descentralizada permite a validação por múltiplos participantes, 
+                        assegurando a integridade das operações sem depender de uma 
+                        autoridade central.
+                    </p>
+                    <p>
+                        A escassez digital é uma característica-chave do Bitcoin, 
+                        limitado a 21 milhões de moedas. Essa restrição de oferta 
+                        confere-lhe um caráter deflacionário, impulsionando seu valor ao 
+                        longo do tempo. Mantida pelo processo de mineração, a introdução 
+                        gradual de novos Bitcoins na economia contribui para a valorização 
+                        do ativo. Com sua avançada criptografia, o Bitcoin garante a 
+                        segurança das transações e dos endereços dos usuários, inspirando 
+                        confiança e atraindo tanto indivíduos quanto instituições 
+                        financeiras para sua adoção e utilização. Essas características 
+                        únicas posicionam o Bitcoin não apenas como uma moeda digital, mas 
+                        como uma inovação disruptiva com o potencial de remodelar o panorama 
+                        financeiro global.
+                    </p>
+                    <p>
+                        <b>
+                            Para mais informações vá para seção de fontes educativas em 
+                            <a href="/Documentação/">Documentação</a>.
+                        </b>
+                    </p>
+            </div>
+                <img src="/Design/Images/Landing Page/wtfisbtc.png" alt="Rev_btc">
+            </section>
         </div>
     </main>
-    <section>
-        <div class="box1">
-            <div  class="description">
-                <img style="border-radius: 50%; border: 2px solid white; background-color: rgb(238, 238, 238); height: 200px;" src="Ícones/bitcoin_logo_icon_145452.png">
-                <h2 style="color: white;">O que é bitcoin?</h2>
-                <p style="border-radius: 15px; padding: 15px; color: white;background-color: rgb(21, 21, 21);">  
-                    O Bitcoin é uma moeda digital descentralizada criada em 2009.
-                    Não é controlada por governos ou bancos, sendo verificada por uma rede de computadores.
-                    Pode ser usada para transações online e é vista como um investimento devido à sua volatilidade de preço.
-                    É armazenada em carteiras digitais.
-                </p>
-            </div>
-            <div  class="description">
-                <img style="border: 3px solid white; border-radius: 50%; background-color: rgb(238, 238, 238); height: 200px;" src="Ícones/3524335.png">
-                <h2 style="color: white;">Por que usar o nosso site?</h2>
-                <p style="border-radius: 15px; padding: 15px; color: white;background-color: rgb(21, 21, 21);">  
-                    Nós oferecemos um jeito fácil e intuitivo
-                    para todos aqueles que querem entrar em um mercado
-                    bitcoin! Além disso, com nossa interface dinâmica
-                    e fácil de entender você não demorará para começar
-                    a fazer transações!
-                </p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="footerContainer">
-            <div class="socialIcons">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-
-                <a href="#"><i class="fa-brands fa-google-plus"></i></a>
-
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <div class="footerNav">
-                <ul>
-                    <li><a href="#">Página Inicial</a></li>
-                    <li><a href="#">Notícias</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Entre em contato</a></li>
-                    <li><a href="#">Nosso time</a></li>
-                </ul>
-            </div>
-        </div>
-            <div class="footerBottom">
-                <p>Copytight &copy;2023; Design por <span class="designer">time BiPFiX</span></p>
-            </div>
-    </footer>
 </body>
 </html>
