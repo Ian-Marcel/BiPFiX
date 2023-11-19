@@ -1,7 +1,6 @@
 /* DOCUMENTO CSS*/
 
 /* COFIGURAÇÕES GERAIS */
-
 html, body {
 	height: 100%;
     margin: 0%;
@@ -10,12 +9,14 @@ html, body {
 	color: #E5E5EA;
 	font-size: 1rem;
 	line-height: 1.5; 
+	overflow-x: hidden;
 	font-family: Satoshi-Variable, sans-serif;
 }
 a {
 	text-decoration: none;
 	color: #E5E5EA;
 }
+
 /* FORTMATAÇÃO DE TEXTO */
 h1, h2, h3 {
 	font-family: Montserrat-Variable, sans-serif;
@@ -81,7 +82,6 @@ nav li a {
 	margin: 0 20px;
 	padding: 0 5px;
 	height: 50px;
-
 }
 
 .exept a{
@@ -89,22 +89,22 @@ nav li a {
 	background: #007AFF;
 	padding: 10px;
 	border-radius: 5px;
-	margin: 0 10px 0 20px;
+	margin: 0 0 0 20px;
 }
 
 /* BANNER "CATCH ATTENTION" + TÍTULO */
 .banner {
 	width: 100vw;
 	margin-bottom: 25px;
-	height: 800px;
+	height: 845px;
 	background-image: url('/Design/Images/Landing Page/ldb.png');
     background-size: cover;
     background-position: left;
 	background-attachment: fixed;
-	h1 {
-		font-size: 3rem;
-		color: #FFFFFF;
-	}
+}
+.banner h1 {
+	font-size: 3rem;
+	color: #FFFFFF;
 }
 
 .banner-content {
@@ -127,7 +127,7 @@ main {
 
 .content {
 	margin: auto;
-	max-width: 1000px;
+	width: 1000px;
 	min-height: 100vh;
 	text-align: center;
 }
@@ -144,12 +144,8 @@ section {
 	color: #007AFF;
 	text-decoration: underline;
 }
-.BTCintro p{
-	float: left;
-	margin-right: 20px;
-}
 .BTCintro img {
-	float: right;
 	border-radius: 20px;
-	height: 650px;
+	height: 600px;
+	margin-right: 20px;
 }
