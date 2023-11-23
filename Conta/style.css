@@ -1,352 +1,138 @@
-body{
-    background-color: #000;
+html, body {
+	height: 100%;
+    margin: 0%;
+	padding: 0%;
+    display: grid;
+    place-items: center;
+	overflow-x: hidden;
+    background: #000000;
+	font-family: Satoshi-Variable, sans-serif;
+    color: #E5E5EA;
+	font-size: 1rem;
+	line-height: 1.5;
 }
-.tudo{
-    height: auto;
-}
-.gradient{
-    width: 100%;
-  height: 800px;
-  padding: 0px;
-  margin: 0px;
-}
-.largura{
-    width: 97.85%;
-    height: auto;
-    padding: 20px;
-    color: white;
-    margin-bottom: 2%;
-    text-align: center;
-    font-family: Montserrat;
-    font-weight: bold;
-    font-size: 36px;
-}
-.menu-lateral {
-    display: flex;
-    width: 120px;
-    height: auto;
-    position: absolute;
-    position: fixed;
-    top: 30%;
-    border: 4px solid black;
-    left: 4%;
-    overflow: hidden;
-    background-color: #E67E22; 
-    border-radius: 25px;
-    padding: 20px 0;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+a {
+	text-decoration: none;
+	color: #007AFF;
 }
 
-.menu-lateral ul {
-    list-style: none;
-    padding: 0;
+/* FORTMATAÇÃO DE TEXTO */
+h1, h2, h3 {
+	font-family: Montserrat-Variable, sans-serif;
+}
+h1 {
+	font-size: 2rem; 
 }
 
-.menu-lateral li {
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 10px;
+h2 {
+	font-size: 1.75rem; 
+}
+h3 {
+	font-size: 1.5rem; 
 }
 
-.menu-lateral a {
-    text-decoration: none;
-    color: white;
-    display: block;
-    font-size: 18px;
-    position: relative;
+p, span, label {
+	font-size: 1rem;
+	line-height: 1.5;
+	font-family: Satoshi-Variable, sans-serif;
+	font-weight: 500;
 }
 
-.menu-lateral i {
-    font-size: 35px;
-    transform: 0.3s;
+/* DOCK MENU */
+#dock{
+	position: fixed;
+	left: 0px;
+	color: #E5E5EA;
+	padding: 20px;
+	z-index: 999;
+	margin: auto;
+    display: grid;
+	place-items: center;
 }
-
-.menu-item:hover i {
-    transform: scale(1.2); 
+.dock {
+	background: rgba(34, 34, 34, 0.80);
+	border: solid 1px #333;
+	margin: 0px;
+	overflow: auto;
+	padding: 0px;
+	border-radius: 2rem;
 }
-
-.menu-item.active i {
-    transform: scale(1.2); 
-}
-
-.caixazona{
-    height: auto;
-    padding: 20px;
-    width: 90vw;
-    display: flex;
-}
-.caixazonadireita{
-    width: 90%;
-    position: relative;
-    left: 16.5%;
-    display: flex;
-    justify-content: space-around;
-    height: auto;
-
-    min-height: 80vh;
-}
-.detalhescontainer{
-    height: auto;
-    margin-left: 1%;
-    margin-bottom: 1%;
-    flex-wrap: wrap;
-    min-height: 100%;
-    -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    min-width: 37%;
-    justify-content: space-evenly;
-    width: auto;
-    overflow: hidden;
-    border-radius: 30px;
-    background-color: rgb(59, 59, 59);
-    display: flex;
+.dock ul {
+	scroll-snap-type: x mandatory;
+	display: flex;
     flex-direction: column;
+	gap: 1.5rem;
+	margin: 0px;
+	padding: 1rem;
+	scroll-padding: 1rem;
 }
-.ordens{
-    height: auto;
-    -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    margin-left: 1%;
-    margin-bottom: 1%;
-    flex-wrap: wrap;
-    padding: 15px;
-    min-height: 100%;
-    min-width: 37%;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow: hidden;
-    border-radius: 30px;
-    background-color: #e47c22;
-    display: flex;
-    flex-direction: column;
-}
-.texto{
-    font-family: Montserrat;
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-.texto2{
-    font-family: Montserrat;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-.centro{
-    display: flex;
-    font-family: Montserrat;
-    color: white;
-    flex-wrap: wrap;
-    font-size: 15px;
-    padding: 10px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-.centro2{
-    display: flex;
-    font-family: Montserrat;
-    color: white;
-    font-size: 15px;
-    margin: 5%;
-    text-align: center;
-    align-items: center;
-}
-label {
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    margin-right: 10px; 
-}
-#userID, #publicName {
-    background-color: rgb(240, 240, 240);
-    color: black;
-    font-size: 20px;
-    padding: 10px;
-    border: 2px solid black;
-    border-radius: 10px;
-}
-.segundobloco{
-    height: auto;
-    margin-right: 20%;
-    overflow: hidden;
-    margin-bottom: 1%;
-    border: 4px solid black;
-    flex-wrap: wrap;
-    width: auto;
-    min-width: 37%;
-    flex-direction: column;
-    border-radius: 30px;
-    display: inline-block;
-}
-.setor{
-    background-color: rgb(255, 255, 255);
-    height: auto;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    border-radius: 25px;
-    padding: 10px;
-}
-input[type="text"]{
-    width: 220px;
-    max-width: 250px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 40px;
-    color: white;
-    background-color: black;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
+.dock li {
+	display: grid;
+	place-items: center;
 }
 
-input[type="text"]:focus{
-    outline: none;
+/* INFORMAÇÕES DA CONTA */
+main {
+    height: 100vh;
+	text-align: center;
+	display: grid;
+	place-items: center;
+}
+h1{
+	top: 0px;
+	margin-top: 20px;
+	position: fixed;
+}
+section{
+	background-color: #1C1C1EFF;
+	border: solid 1px #333;
+	min-height: 500px;
+	width: 350px;
+	border-radius: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-
-input[type="password"]{
-    width: 220px;
-    max-width: 250px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 40px;
-    color: white;
-    background-color: black;
-    border-radius: 10px;
-    border: 3px solid #ffffff;
+.show_username {
+	margin: auto;
 }
-
-input[type="password"]:focus{
-    outline: none;
+.show_username span {
+	color: #007AFF;
+	background: #333;
+	border-radius: 7.5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%z;
+	height: 30px;
 }
-
-input[type="password"]:-moz-placeholder{
-    background-color: #9a6ffd;
+main section h3 {
+	text-align: center;
+	margin-top: 10px;
 }
-input[type="submit"]{
-    background-color: black;
-    color: white;
-    border-radius: 12px;
-    border: 2px solid white;
-    transition: .3s ease;
-    padding: 5px;
-    font-family: montserrat;
+main section div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin: auto;
+	width: 250px;
+	gap: 10px;
 }
-input[type="submit"]:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-    border: 2px solid black;
-    background-color: white;
-    color: black;   
+section img {
+	height: 50px;
 }
-.blocoterceiro{
-    width: 60%;
-    height: auto;
-    display: flex;
-    border: 4px solid black;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffc400;
-    border-radius: 25px;
+#logingOUT {
+	display: flex;
+	align-items: center;
+	color: #E5E5EA;
+	border-radius: 1rem;
+	padding: 0.5rem;
+	float: left;
+	margin: 0 0 10px 10px;
+	background: rgba(255, 69, 58, 0.5);
+	width: fit-content;
 }
-
-@media (max-width: 768px) {
-    .largura {
-        font-size: 24px; 
-    }
-
+#logingOUT span {
+	margin-left: 10px;
 }
-@media (max-width: 850px) {
-    .texto {
-        font-size: 16px; 
-    }
-}
-/* ----------------------------------------------
- * Generated by Animista on 2023-10-25 20:5:42
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation slide-in-right
- * ----------------------------------------
- */
- @-webkit-keyframes slide-in-right {
-    0% {
-      -webkit-transform: translateX(1000px);
-              transform: translateX(1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slide-in-right {
-    0% {
-      -webkit-transform: translateX(1000px);
-              transform: translateX(1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  /* ----------------------------------------------
- * Generated by Animista on 2023-10-25 20:44:38
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation slide-in-left
- * ----------------------------------------
- */
-@-webkit-keyframes slide-in-left {
-    0% {
-      -webkit-transform: translateX(-1000px);
-              transform: translateX(-1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slide-in-left {
-    0% {
-      -webkit-transform: translateX(-1000px);
-              transform: translateX(-1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  

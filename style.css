@@ -53,7 +53,9 @@ nav {
 	margin-top: 0%;
 	display: flex;
 	flex-direction: row;
+	min-width: 1000px;
 	width: 1000px;
+	max-width: 1000px;
 	height
 	: 50px;
 }
@@ -127,7 +129,9 @@ main {
 
 .content {
 	margin: auto;
+	min-width: 1000px;
 	width: 1000px;
+	max-width: 1000px;
 	min-height: 100vh;
 	text-align: center;
 }
@@ -146,6 +150,6 @@ section {
 }
 .BTCintro img {
 	border-radius: 20px;
-	height: 600px;
+	height: 550px;
 	margin-right: 20px;
 }
