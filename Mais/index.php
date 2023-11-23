@@ -3,19 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiPFiX - Mais</title>
-    <link rel="shortcut icon" href="../Ícones/Fav.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../Design/Fonts/Satoshi/css/satoshi.css">
+    <link rel="stylesheet" href="../Design/Fonts/Montserrat/Montserrat.css">
+    <link rel="shortcut icon" href="../Design/Icons/Favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>BiPFiX - Mais</title>
 </head>
 <body>
-<div style="border: 0px; background-color: #424A53;" class="menu-lateral">
+    <div style="border: 0px; background-color: #424A53;" class="menu-lateral">
         <ul>
-        <li><a href="#" class="menu-item"><img src="../Ícones/Mais.png"></a><span style="font-family: montserrat; font-size: 15px; color:white; padding-top: 10px;">Mais</span></li>
-            <li><a href="../Suas Ordens" class="menu-item"><img src="../Ícones/Suas ordens.png"></a></li>
-            <li><a href="../Criar Ordem" class="menu-item"><img src="../Ícones/Criar ordem.png"></a></li>
-            <li><a href="../Mercado/" class="menu-item"><img src="../Ícones/Mercado.png"></a></li>
-            <li><a href="../Conta/" class="menu-item"><img src="../Ícones/Conta.png"></a></li>
+            <li>
+                <a href="../Mais/" class="menu-item">
+                    <img src="../Design/Icons/Dock/Mais.png">
+                </a>
+                <span>
+                    Mais
+                </span>
+            </li>
+            <li>
+                <a href="#" class="menu-item">
+                    <img src="../Design/Icons/Dock/Suas ordens.png">
+                </a>
+            </li>
+            <li>
+                <a href="../Criar Ordem" class="menu-item">
+                    <img src="../Design/Icons/Dock/Criar ordem.png">
+                </a>
+            </li>
+            <li>
+                <a href="../Mercado/" class="menu-item">
+                    <img src="../Design/Icons/Dock/Mercado.png">
+                </a>
+            </li>
+            <li>
+                <a href="../Conta/" class="menu-item">
+                    <img src="../Design/Icons/Dock/Conta.png">
+                </a>
+            </li>
         </ul>
     </div>
 

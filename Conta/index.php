@@ -4,46 +4,73 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="shortcut icon" href="../Ícones/Fav.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../Design/Fonts/Montserrat/Montserrat.css">
+        <link rel="stylesheet" href="../Design/Fonts/Satoshi/css/satoshi.css">
+        <link rel="shortcut icon" href="../Design/Icons/Favicon.ico" type="image/x-icon">
         <title>BiPFiX - Conta</title>
     </head>
     <body>
-    <div class="tudo">
-        <div class="gradient">
-    <div class="largura">Bem vindo de volta Display Name!</div>
-    <div class="caixazona">
-    <div style="border: 0px; background-color: #424A53;" class="menu-lateral">
-        <ul>
-            <li><a href="../Mais/" class="menu-item"><img src="../Ícones/Mais.png"></a></li>
-            <li><a href="../Suas Ordens/" class="menu-item"><img src="../Ícones/Suas ordens.png"></a></li>
-            <li><a href="../Criar Ordem" class="menu-item"><img src="../Ícones/Criar ordem.png"></a></li>
-            <li><a href="../Mercado/" class="menu-item"><img src="../Ícones/Mercado.png"></a></li>
-            <li><a href="#" class="menu-item"><img src="../Ícones/Conta.png"></a><span style="font-family: montserrat; font-size: 15px; color:white; padding-top: 10px;">Conta</span></li>
-        </ul>
-    </div>
-    <div class="caixazonadireita">
-        <div class="detalhescontainer"><!--Começa o código da parte de detalhes da conta e suas ordens-->
-            <div style="background-color: rgb(59, 59, 59);" class="setor">
-                <div style="font-size: 40px;" class="texto">Detalhes da conta</div>
-                <div class="texto" style="font-size: 20px; margin-top: 20px;">ID:</div>
-                <label for="id"></label>
-                <input type="text" name="id"  required>
-                <label for="nomepublico"><b style="font-family: montserrat; padding-top: 50px;">Nome Público:</b></label>
-                <input type="text" name="nomepublico" required>
-                <div class="texto" style="font-size: 20px;">Senha:</div>
-                <label for="senha"></label>
-                <input type="password" name="senha"  required>
-            </div>
-        </div><!--Termina o código da parte de detalhes da conta e suas ordens-->
-        <div class="ordens">
-            <div style="font-size: 40px;" class="texto">Suas ordens</div>
-            <img style="height: 200px; width: 200px;" src="https://cdn-icons-png.flaticon.com/512/7801/7801791.png">
-            <h3 style="font-family: montserrat; font-size: 20px;">Você não tem nenhum tipo de ordem ativa no momento,<br>
-                acesse o mercado de ordens para
-                comprar ou vender.</h3>
-        </div>
-</div>
-
-</body>
+    <!-- DOCK MENU -->
+        <header id="dock">
+            <nav class="dock">
+                <ul>
+                    <li>
+                        <a href="../Mais/" class="APP" title="Mais">
+                            <img src="../Design/Icons/Dock/Mais.png" alt="MaisIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Suas Ordens/" class="APP" title="Suas Ordens">
+                            <img src="../Design/Icons/Dock/Suas ordens.png" alt="Suas_OrdensIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Criar Ordem/" class="APP" title="Criar Ordem">
+                            <img src="../Design/Icons/Dock/Criar ordem.png" alt="Criar_OrdemIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Mercado/" class="APP" title="Mercado">
+                            <img src="../Design/Icons/Dock/Mercado.png" alt="MercadoIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Conta/" class="APP" title="Conta">
+                            <img src="../Design/Icons/Dock/Conta.png" alt="ContaIMG">
+                        </a>
+                        <span>Conta</span>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    <!-- INFORMAÇÕES DA CONTA -->
+        <main>
+    <h1>Olá, $USER</h1>
+            <section>
+    <h3>Informações da conta</h3>
+                <div>
+                    <div class="show_username">
+                        <label>Nome de usuário</label>
+                        <span>$USER</span>
+                    </div>
+                    <form action="index.php" method="post">
+                        <label for="changepubname">Nome público</label>
+                        <br>
+                        <input type="text" name="changepubname" id="change_pub_name">
+                        <input type="submit" value="change">
+                    </form>
+                    <form action="index.php" method="post">
+                    <label for="changepasswd">Senha</label>
+                    <br>
+                        <input type="text" name="changepasswd" id="change_passwd">
+                        <input type="submit" value="change">
+                    </form>
+                </div>
+                <a id="logingOUT" href="../LogIn/">
+                    <img src="../Design/Icons/Dock/Logout.png" alt="logoutIMG">
+                    <span>Log Out</span>
+                </a>
+            </section>
+        </main>
+    </body>
 </html>
