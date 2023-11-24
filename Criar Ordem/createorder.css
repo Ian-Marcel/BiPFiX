@@ -33,15 +33,13 @@ body {
 
 .menu-lateral {
     display: flex;
-    width: 120px;
+    width: 92%;
     height: auto;
-    position: absolute;
-    position: fixed;
-    top: 30%;
-    left: 4%;
+    min-height: 120px;
     overflow: hidden;
-    background-color: #424A53; 
+    background-color: #f8c419; 
     border-radius: 25px;
+    margin-left: 10px;
     padding: 20px 0;
     align-items: center;
     text-align: center;
@@ -87,7 +85,6 @@ body {
 .menu-item.active span {
     display: block; 
 }
-
 
 .criar{
     background-color: rgb(96, 96, 96);
