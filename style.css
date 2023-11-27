@@ -99,7 +99,7 @@ nav li a {
 	width: 100vw;
 	margin-bottom: 25px;
 	height: 845px;
-	background-image: url('/Design/Images/Landing Page/ldb.png');
+	background-image: url('Design/Images/LandingPage/ldb.png');
     background-size: cover;
     background-position: left;
 	background-attachment: fixed;

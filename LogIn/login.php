@@ -66,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->rowCount() == 1) {
             // Login bem-sucedido! Redirecione para a página principal
+            $_SESSION['id_name'] = $id_name; // Defina o valor correto na sessão
             header("Location: ../Conta/index.php");
             exit(); // Certifique-se de encerrar o script após o redirecionamento
         } else {
