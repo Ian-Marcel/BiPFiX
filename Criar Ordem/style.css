@@ -1,0 +1,92 @@
+html, body {
+	height: 100%;
+    margin: 0%;
+	padding: 0%;
+    display: grid;
+    place-items: center;
+	overflow-x: hidden;
+    background: #000000;
+	font-family: Satoshi-Variable, sans-serif;
+    color: #E5E5EA;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+a {
+	text-decoration: none;
+	color: #007AFF;
+}
+
+/* FORTMATAÇÃO DE TEXTO */
+h1, h2, h3 {
+	font-family: Montserrat-Variable, sans-serif;
+}
+h1 {
+	font-size: 2rem; 
+}
+
+h2 {
+	font-size: 1.75rem; 
+}
+h3 {
+	font-size: 1.5rem; 
+}
+
+p, span, label {
+	font-size: 1rem;
+	line-height: 1.5;
+	font-family: Satoshi-Variable, sans-serif;
+	font-weight: 500;
+}
+
+/* DOCK MENU */
+#dock{
+	position: fixed;
+	left: 0px;
+	color: #E5E5EA;
+	padding: 20px;
+	z-index: 999;
+	margin: auto;
+    display: grid;
+	place-items: center;
+}
+.dock {
+	background: rgba(34, 34, 34, 0.80);
+	border: solid 1px #333;
+	margin: 0px;
+	overflow: auto;
+	padding: 0px;
+	border-radius: 2rem;
+}
+.dock ul {
+	scroll-snap-type: x mandatory;
+	display: flex;
+    flex-direction: column;
+	gap: 1.5rem;
+	margin: 0px;
+	padding: 1rem;
+	scroll-padding: 1rem;
+}
+.dock li {
+	display: grid;
+	place-items: center;
+}
+
+/* FORMULÁRIO DE CRIAÇÃO DE ORDEM */
+main {
+    margin: auto;
+    width: 400px;
+    height: 550px;
+    background-color: #1C1C1EFF;
+	border: solid 1px #333;
+    border-radius: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+form {
+    text-align: justify;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
