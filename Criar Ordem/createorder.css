@@ -176,6 +176,7 @@ body {
     padding: 10px;
     border-radius: 12px;
     min-width: 150px;
+    border: none !important;
 }
 
 .botão:hover{

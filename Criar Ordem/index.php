@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 // Inclua aqui a lógica de conexão com o banco de dados, se necessário
 $host = "localhost";
@@ -12,6 +11,41 @@ try {
 } catch (PDOException $e) {
     echo "Erro na conexão com o banco de dados: " . $e->getMessage();
     die();
+}
+
+// Lógica para verificar e excluir ordens expiradas
+try {
+    $sql = "SELECT id, time_gap FROM orders WHERE status = 'created'";
+    $stmt = $pdo->query($sql);
+    $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($orders as $order) {
+        $orderId = $order['id'];
+        $timeGap = $order['time_gap'];
+
+        // Calcula o tempo restante em segundos
+        $timeGapInSeconds = strtotime($timeGap) - time();
+
+        if ($timeGapInSeconds <= 0) {
+            // A ordem expirou, exclua-a
+            $deleteSql = "DELETE FROM orders WHERE id = :orderId";
+            $deleteStmt = $pdo->prepare($deleteSql);
+            $deleteStmt->bindParam(':orderId', $orderId);
+            $deleteStmt->execute();
+        } else {
+            // Formata o tempo restante para o formato 'HH:MM:SS'
+            $newTimeGap = gmdate("H:i:s", $timeGapInSeconds);
+
+            // Atualize o time_gap restante
+            $updateSql = "UPDATE orders SET time_gap = :newTimeGap WHERE id = :orderId";
+            $updateStmt = $pdo->prepare($updateSql);
+            $updateStmt->bindParam(':newTimeGap', $newTimeGap);
+            $updateStmt->bindParam(':orderId', $orderId);
+            $updateStmt->execute();
+        }
+    }
+} catch (PDOException $e) {
+    echo "Erro ao verificar e excluir ordens expiradas: " . $e->getMessage();
 }
 
 // Lógica para processar o formulário quando enviado
@@ -31,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $stmt->execute();
 
         // Exemplo de saída, você pode redirecionar para outra página se desejar
-        echo "Ordem criada com sucesso!";
+        header("Location: index.php");
         exit();
     } catch (PDOException $e) {
         echo "Erro ao inserir no banco de dados: " . $e->getMessage();
@@ -117,6 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                             aria-label="Dollar amount (with dot and two decimal places)" name="bonus_onus">
                         <span class="input-group-text divzinha"><p>%</p></span>
                     </div>
+                    <p id="mensagem-ordem" style='margin-top: 60px !important;'>Você está criando uma ordem de Compra de 0 R$ a uma taxa de 0%</p>
                     <?php
                     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tipo_ordem'])) {
                         $tipo_ordem = $_POST['tipo_ordem'];
@@ -125,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                         echo "<p style='margin-top: 60px !important;'>Você está criando uma ordem de $tipo_ordem de $valor_compra a uma taxa de $bonus_onus</p>";
                     }
                     ?>
-                      <div class="divbotão my-4">
+                    <div class="divbotão my-4">
                         <input type="submit" name="submit" class="botão" value="Criar Ordem">
                     </div>
                     <p class="p1">Valor desses bitcoins no mercado: 130.000 R$/BTC</p>
@@ -151,6 +186,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 dropdownMenu.classList.remove('show');
             }
         });
+        // Adicione este bloco de código
+        var valorCompraInput = document.querySelector('input[name="valor_compra"]');
+        var bonusOnusInput = document.querySelector('input[name="bonus_onus"]');
+        var mensagemOrdem = document.getElementById('mensagem-ordem');
+
+        valorCompraInput.addEventListener('input', atualizarMensagemOrdem);
+        bonusOnusInput.addEventListener('input', atualizarMensagemOrdem);
+
+        function atualizarMensagemOrdem() {
+            var tipoOrdem = document.getElementById('tipoOrdemBtn').innerText;
+            var valorCompra = valorCompraInput.value || '0';
+            var bonusOnus = bonusOnusInput.value || '0';
+
+            mensagemOrdem.innerText = `Você está criando uma ordem de ${tipoOrdem} de ${valorCompra} R$ a uma taxa de ${bonusOnus}%`;
+        }
     });
 
     function changeTipoOrdem(tipo) {
@@ -173,69 +223,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     </script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BiPFiX - Criar Ordem</title>
-        <link rel="stylesheet" href="../Design/Fonts/Montserrat/Montserrat.css">
-        <link rel="stylesheet" href="../Design/Fonts/Satoshi/css/satoshi.css">
-        <link rel="shortcut icon" href="../Design/Icons/Favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-
-    <!-- DOCK MENU -->
-    <header id="dock">
-        <nav class="dock">
-            <ul>
-                <li>
-                    <a href="../Mais/" class="APP" title="Mais">
-                        <img src="../Design/Icons/Dock/Mais.png" alt="MaisIMG">
-                    </a>
-                </li>
-                <li>
-                    <a href="../Suas Ordens/" class="APP" title="Suas Ordens">
-                        <img src="../Design/Icons/Dock/Suas ordens.png" alt="Suas_OrdensIMG">
-                    </a>
-                </li>
-                <li>
-                    <a href="../Criar Ordem/" class="APP" title="Criar Ordem">
-                        <img src="../Design/Icons/Dock/Criar ordem.png" alt="Criar_OrdemIMG">
-                    </a>
-                    <span>Criar Ordem</span>
-                </li>
-                <li>
-                    <a href="../Mercado/" class="APP" title="Mercado">
-                        <img src="../Design/Icons/Dock/Mercado.png" alt="MercadoIMG">
-                    </a>
-                </li>
-                <li>
-                    <a href="../Conta/" class="APP" title="Conta">
-                        <img src="../Design/Icons/Dock/Conta.png" alt="ContaIMG">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- FORMULÁRIO DE CRIAÇÃO DE ORDEM -->
-    <main>
-        <h2>Crie sua ordem</h2>
-        <form action="../Suas Ordens/" method="post">
-                <select name="type" id="type">
-                    <option value="buy">comprar</option>
-                    <option value="sell">vender</option>
-                </select>
-                <p>Quantos</p>
-                <input type="number" name="value_BRL" id="value_BRL" min="1">
-                <p></p>
-                <input type="number" name="percentage" id="percentage" min="1" max="20">
-        </form>
-    </main>
-
-    </body>
-</html>
->>>>>>> c0662c01e880321ee0e737ed79194b22ccd86035
