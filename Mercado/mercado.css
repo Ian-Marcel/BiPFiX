@@ -1,0 +1,138 @@
+body{
+    background-color: #252A34;
+    font-family: 'Montserrat', sans-serif;
+}
+.menu-lateral {
+    display: flex;
+    width: 120px;
+    height: auto;
+    position: absolute;
+    position: fixed;
+    top: 30%;
+    left: 4%;
+    overflow: hidden;
+    background-color: #424A53; 
+    border-radius: 25px;
+    padding: 20px 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral li {
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 18px;
+    position: relative;
+}
+.caixaprincipal {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; /* Centraliza verticalmente */
+    height: 100vh; /* 100% da altura da viewport */
+}
+
+.mercado-status {
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.status-box {
+    width: 15%;
+    min-width: auto;
+    color: white;
+    background-color: #FF6961;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+}
+
+.status-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.status-markets {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 80%;
+    margin-top: 20px; /* Ajusta a margem superior para espaço entre o menu lateral e o conteúdo */
+}
+
+.market-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.market-block {
+    background-color: #000000;
+    border-radius: 40px;
+    color: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: .3s ease;
+    width: calc(25% - 10px);
+}
+.market-block:hover{
+    transform: scale(1.2);
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    .expiration{
+        background-color: chartreuse;
+        border: 2px solid black;
+    }
+}
+.expiration {
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+.pagination button {
+    background-color: #424A53;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.pagination button:hover{
+    transform: scale(1.2) rotate(8deg);
+}
+.conteudo-centralizado {
+    margin-left: 120px; /* Largura do menu lateral */
+    width: calc(100% - 120px); /* Largura total menos a largura do menu lateral */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

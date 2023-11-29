@@ -143,7 +143,6 @@ section {
 	justify-content: center;
 }
 
-
 .BTCintro a{
 	color: #007AFF;
 	text-decoration: underline;
@@ -152,4 +151,8 @@ section {
 	border-radius: 20px;
 	height: 550px;
 	margin-right: 20px;
+}
+
+@media (min-width: 800px;) {
+	
 }

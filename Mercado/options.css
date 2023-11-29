@@ -1,0 +1,110 @@
+body{
+    background-color: #252A34;
+    font-family: 'Montserrat', sans-serif;
+}
+.menu-lateral {
+    display: flex;
+    width: 120px;
+    height: auto;
+    position: absolute;
+    position: fixed;
+    top: 30%;
+    left: 4%;
+    overflow: hidden;
+    background-color: #424A53; 
+    border-radius: 25px;
+    padding: 20px 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral li {
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 18px;
+    position: relative;
+}
+.caixaprincipal{
+    height: auto;
+    padding: 20px;
+    width: 90vw;
+    background-color: #252A34;
+    display: flex;
+}
+.title{
+    width: 90%;
+    position: relative;
+    left: 16.5%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+    min-height: 90vh;
+}
+.title h1{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    justify-content: center;
+}
+.option-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15vh;
+    gap: 20%;
+}
+
+
+.optionbox {
+    padding: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    gap: 3vh;
+    flex-direction: column;
+    border-radius: 30px;
+    background-color: #34C848;
+    width: 150px; 
+    transition: .3s ease;
+}
+.optionbox:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.optionbox h2 {
+    font-family: Montserrat;
+    font-weight: bold;
+    color: white;
+    margin: 0; 
+}
+.circle {
+    display: flex;
+    border: 10px solid white;
+    border-radius: 50%;
+    padding: 20px;
+    height: 30px;
+    justify-content: center;
+    text-align: center;
+    width: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+.bitcoin-symbol {
+    font-size: 30px; 
+    color: white;
+}
