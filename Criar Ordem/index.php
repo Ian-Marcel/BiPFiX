@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                         <a href="../Criar Ordem" class="menu-item">
                             <img src="../Design/Icons/Dock/Criar ordem.png">
                         </a>
-                        <span>
+                        <span style="color:white;">
                             Criar Ordem
                         </span>
                     </li>
