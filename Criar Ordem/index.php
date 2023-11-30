@@ -45,7 +45,7 @@ try {
         }
     }
 } catch (PDOException $e) {
-    echo "Erro ao verificar e excluir ordens expiradas: " . $e->getMessage();
+#    echo "Erro ao verificar e excluir ordens expiradas: " . $e->getMessage();
 }
 
 // Lógica para processar o formulário quando enviado
@@ -81,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <title>BiPFiX - Criar Ordem</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="createorder.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Design/Fonts/Satoshi/css/satoshi.css">
     <link rel="stylesheet" href="../Design/Fonts/Montserrat/Montserrat.css">
     <link rel="shortcut icon" href="../Design/Icons/Favicon.ico" type="image/x-icon">
@@ -88,42 +89,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 </head>
 <body class="custom">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <main>
-    <div class="caixazona">
-        <div class="lateralbox">
-            <div class="menu-lateral">
+        <!-- DOCK MENU -->
+        <header id="dock">
+            <nav class="dock">
                 <ul>
                     <li>
-                        <a href="../Mais/" class="menu-item">
-                            <img src="../Design/Icons/Dock/Mais.png">
+                        <a href="../Mais/" class="APP" title="Mais">
+                            <img src="../Design/Icons/Dock/Mais.png" alt="MaisIMG">
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="menu-item">
-                            <img src="../Design/Icons/Dock/Suas ordens.png">
+                        <a href="../Suas Ordens/" class="APP" title="Suas Ordens">
+                            <img src="../Design/Icons/Dock/Suas ordens.png" alt="Suas_OrdensIMG">
                         </a>
                     </li>
                     <li>
-                        <a href="../Criar Ordem" class="menu-item">
-                            <img src="../Design/Icons/Dock/Criar ordem.png">
+                        <a href="../Criar Ordem/" class="APP" title="Criar Ordem">
+                            <img src="../Design/Icons/Dock/Criar ordem.png" alt="Criar_OrdemIMG">
                         </a>
-                        <span style="color:white;">
-                            Criar Ordem
-                        </span>
+                        <span>Criar Ordem</span>
                     </li>
                     <li>
-                        <a href="../Mercado/" class="menu-item">
-                            <img src="../Design/Icons/Dock/Mercado.png">
+                        <a href="../Mercado/" class="APP" title="Mercado">
+                            <img src="../Design/Icons/Dock/Mercado.png" alt="MercadoIMG">
                         </a>
                     </li>
                     <li>
-                        <a href="../Conta/" class="menu-item">
-                            <img src="../Design/Icons/Dock/Conta.png">
+                        <a href="../Conta/" class="APP" title="Conta">
+                            <img src="../Design/Icons/Dock/Conta.png" alt="ContaIMG">
                         </a>
                     </li>
                 </ul>
-            </div>
-        </div>
+            </nav>
+        </header>
+
+    <main>
 
         <div class="criar">
             <form action="index.php" method="post">
@@ -140,15 +140,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 <div class="container-fluid container1 my-5">
                     <p>Quanto você quer comprar/vender?</p>
                     <div class="input-group inputs d-flex justify-content-center my-4">
-                        <input type="text" class="form-control" placeholder="Insira um valor" required
-                            aria-label="Dollar amount (with dot and two decimal places)" name="valor_compra">
-                        <span class="input-group-text divzinha"><img class="brasilf" src="brazil.png" alt="brazil flag">
-                            R$</span>
+                        <input type="number" class="form-control" placeholder="Insira um valor" required
+                            aria-label="Dollar amount (with dot and two decimal places)" name="valor_compra" min="1">
+                        <span class="input-group-text divzinha">R$</span>
                     </div>
                     <p>Bônus/Ônus sobre o mercado</p>
                     <div class="input-group inputs d-flex justify-content-center my-4">
-                        <input type="text" class="form-control" placeholder="Insira um valor" required
-                            aria-label="Dollar amount (with dot and two decimal places)" name="bonus_onus">
+                        <input type="number" class="form-control" placeholder="Insira um valor" required
+                            aria-label="Dollar amount (with dot and two decimal places)" name="bonus_onus" min="-20" max="20">
                         <span class="input-group-text divzinha"><p>%</p></span>
                     </div>
                     <p id="mensagem-ordem" style='margin-top: 60px !important;'>Você está criando uma ordem de Compra de 0 R$ a uma taxa de 0%</p>
