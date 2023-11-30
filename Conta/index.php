@@ -146,10 +146,23 @@ error_reporting(E_ALL);
                         <input type="submit" value="change">
                     </form>
                 </div>
-                <a id="logingOUT" href="../LogIn/">
+                <a id="logingOUT" href="?logout=true">
                     <img src="../Design/Icons/Dock/Logout.png" alt="logoutIMG">
                     <span>Log Out</span>
                 </a>
+
+                <?php
+                // Verifique se o link de logout foi clicado
+                if (isset($_GET['logout'])) {
+                    // Inicie a sessão e destrua todas as variáveis de sessão
+                    session_start();
+                    session_destroy();
+                    
+                    // Redirecione para a página de login
+                    header("Location: ../LogIn/login.php");
+                    exit();
+                }
+                ?>
             </section>
         </main>
     </body>
