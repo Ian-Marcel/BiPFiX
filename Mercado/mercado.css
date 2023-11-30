@@ -76,13 +76,17 @@ body{
     justify-content: space-between;
     gap: 20px;
     width: 80%;
-    margin-top: 20px; /* Ajusta a margem superior para espaço entre o menu lateral e o conteúdo */
+    margin-top: 20px; 
 }
-
+.empty-space {
+    height: 20px; 
+}
 .market-row {
     display: flex;
     justify-content: center;
     gap: 30px;
+    height: auto;
+    min-height: 200px;
     width: 100%;
 }
 
@@ -90,6 +94,7 @@ body{
     background-color: #000000;
     border-radius: 40px;
     color: #FFFFFF;
+    height: auto;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
