@@ -15,32 +15,47 @@ try {
 
 // Lógica para verificar e excluir ordens expiradas
 try {
-    $sql = "SELECT id, time_gap FROM orders WHERE status = 'created'";
-    $stmt = $pdo->query($sql);
+    session_start(); // Inicie a sessão
+
+    // Verifique se $_SESSION['id_name'] está definido antes de usá-lo
+    if (!isset($_SESSION['id_name'])) {
+        echo "Erro: Sessão não iniciada ou id_name não definido.";
+        exit();
+    }
+
+    $id_name = $_SESSION['id_name'];
+
+    $sql = "SELECT id, time_gap FROM orders WHERE user_identifier = :id_name AND status = 'created'";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id_name', $id_name);
+    $stmt->execute();
     $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($orders as $order) {
         $orderId = $order['id'];
         $timeGap = $order['time_gap'];
+        $userIdentifier = $order['user_identifier']; // Adicionado o user_identifier
 
         // Calcula o tempo restante em segundos
         $timeGapInSeconds = strtotime($timeGap) - time();
 
         if ($timeGapInSeconds <= 0) {
             // A ordem expirou, exclua-a
-            $deleteSql = "DELETE FROM orders WHERE id = :orderId";
+            $deleteSql = "DELETE FROM orders WHERE id = :orderId AND user_identifier = :userIdentifier";
             $deleteStmt = $pdo->prepare($deleteSql);
             $deleteStmt->bindParam(':orderId', $orderId);
+            $deleteStmt->bindParam(':userIdentifier', $userIdentifier);
             $deleteStmt->execute();
         } else {
             // Formata o tempo restante para o formato 'HH:MM:SS'
             $newTimeGap = gmdate("H:i:s", $timeGapInSeconds);
 
             // Atualize o time_gap restante
-            $updateSql = "UPDATE orders SET time_gap = :newTimeGap WHERE id = :orderId";
+            $updateSql = "UPDATE orders SET time_gap = :newTimeGap WHERE id = :orderId AND user_identifier = :userIdentifier";
             $updateStmt = $pdo->prepare($updateSql);
             $updateStmt->bindParam(':newTimeGap', $newTimeGap);
             $updateStmt->bindParam(':orderId', $orderId);
+            $updateStmt->bindParam(':userIdentifier', $userIdentifier);
             $updateStmt->execute();
         }
     }
@@ -51,18 +66,36 @@ try {
 // Lógica para processar o formulário quando enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     // Recupere os valores do formulário
-    $tipoOrdem = isset($_POST["tipo_ordem"]) ? $_POST["tipo_ordem"] : ''; // Verifica se o índice existe
+    $tipoOrdem = isset($_POST["tipo_ordem"]) ? $_POST["tipo_ordem"] : ''; 
     $valorCompra = isset($_POST["valor_compra"]) ? $_POST["valor_compra"] : '';
     $bonusOnus = isset($_POST["bonus_onus"]) ? $_POST["bonus_onus"] : '';
 
-    // Insira os valores no banco de dados conforme necessário
+    // Obtém o id_name do usuário atual (você pode ajustar essa lógica conforme necessário)
+    $id_name = $_SESSION['id_name']; // ou qualquer outra lógica para obter o id_name do usuário
+
     try {
-        $sql = "INSERT INTO orders (type, status, time_gap, v_brl, v_btc, percentage, id_odr_trd) VALUES (:tipo_ordem, 'created', '24:00:00', :valor_compra, NULL, :bonus_onus, NULL)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':tipo_ordem', $tipoOrdem);
-        $stmt->bindParam(':valor_compra', $valorCompra);
-        $stmt->bindParam(':bonus_onus', $bonusOnus);
-        $stmt->execute();
+        // Consulta para obter o user_identifier com base no id_name do usuário
+        $getUserIdentifierSql = "SELECT id_name FROM account WHERE id_name = :id_name";
+        $getUserIdentifierStmt = $pdo->prepare($getUserIdentifierSql);
+        $getUserIdentifierStmt->bindParam(':id_name', $id_name);
+        $getUserIdentifierStmt->execute();
+
+        if ($getUserIdentifierStmt->rowCount() == 1) {
+            $userIdentifier = $id_name; // ou qualquer valor relacionado ao id_name do usuário
+        } else {
+            // Trate o caso em que o id_name não foi encontrado
+            echo "Erro ao obter o id_name do usuário.";
+            exit();
+        }
+
+        // Insira os valores no banco de dados conforme necessário
+        $insertOrderSql = "INSERT INTO orders (user_identifier, type, status, time_gap, v_brl, v_btc, percentage, id_odr_trd) VALUES (:user_identifier, :tipo_ordem, 'created', '24:00:00', :valor_compra, NULL, :bonus_onus, NULL)";
+        $insertOrderStmt = $pdo->prepare($insertOrderSql);
+        $insertOrderStmt->bindParam(':user_identifier', $userIdentifier);
+        $insertOrderStmt->bindParam(':tipo_ordem', $tipoOrdem);
+        $insertOrderStmt->bindParam(':valor_compra', $valorCompra);
+        $insertOrderStmt->bindParam(':bonus_onus', $bonusOnus);
+        $insertOrderStmt->execute();
 
         // Exemplo de saída, você pode redirecionar para outra página se desejar
         header("Location: index.php");
@@ -71,7 +104,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         echo "Erro ao inserir no banco de dados: " . $e->getMessage();
     }
 }
+
+// Exiba a mensagem somente após a inserção bem-sucedida ou quando o formulário for enviado pela primeira vez
+if (isset($_POST["submit"])) {
+    $tipo_ordem = $_POST['tipo_ordem'];
+    $valor_compra = isset($_POST['valor_compra']) ? $_POST['valor_compra'] . ' R$' : '0 R$';
+    $bonus_onus = isset($_POST['bonus_onus']) ? $_POST['bonus_onus'] . '%' : '0%';
+
+    echo "<p style='margin-top: 60px !important;'>Você está criando uma ordem de $tipo_ordem de $valor_compra a uma taxa de $bonus_onus</p>";
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -126,8 +169,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <main>
 
         <div class="criar">
-            <form action="index.php" method="post">
-                    <div class="dropdown">
+        <form action="index.php" method="post">
+                <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="tipoOrdemBtn">
                         Compra
                     </button>
@@ -136,9 +179,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                         <li><button class="dropdown-item vermelho" type="button" onclick="changeTipoOrdem('Venda')">Venda</button></li>
                     </ul>
                     <input type="hidden" name="tipo_ordem" id="tipo_ordem_input" value="Compra">
-                    </div>
+                </div>
                 <div class="container-fluid container1 my-5">
-                    <p>Quanto você quer comprar/vender?</p>
+                    <p>Quanto você quer <span id="acao_compra_venda">comprar</span>?</p>
                     <div class="input-group inputs d-flex justify-content-center my-4">
                         <input type="number" class="form-control" placeholder="Insira um valor" required
                             aria-label="Dollar amount (with dot and two decimal places)" name="valor_compra" min="1">
@@ -194,12 +237,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         bonusOnusInput.addEventListener('input', atualizarMensagemOrdem);
 
         function atualizarMensagemOrdem() {
-            var tipoOrdem = document.getElementById('tipoOrdemBtn').innerText;
-            var valorCompra = valorCompraInput.value || '0';
-            var bonusOnus = bonusOnusInput.value || '0';
+        var tipoOrdem = document.getElementById('tipoOrdemBtn').innerText;
+        var valorCompra = valorCompraInput.value || '0';
+        var bonusOnus = bonusOnusInput.value || '0';
 
-            mensagemOrdem.innerText = `Você está criando uma ordem de ${tipoOrdem} de ${valorCompra} R$ a uma taxa de ${bonusOnus}%`;
-        }
+        // Altere o texto dentro do <span> em vez de dentro do <label>
+        var acaoCompraVenda = document.getElementById('acao_compra_venda');
+        acaoCompraVenda.innerText = tipoOrdem.toLowerCase();
+        mensagemOrdem.innerText = `Você está criando uma ordem de ${acaoCompraVenda.innerText} de ${valorCompra} R$ a uma taxa de ${bonusOnus}%`;
+    }
     });
 
     function changeTipoOrdem(tipo) {
