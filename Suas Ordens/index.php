@@ -1,3 +1,40 @@
+<?php
+session_start(); // Certifique-se de iniciar a sessão no início do script
+
+if (!isset($_SESSION['id_name'])) {
+    header("Location: ../LogIn/login.php");
+    exit();
+}
+
+$userId = $_SESSION['id_name'];
+
+// Conecte-se ao banco de dados (substitua as informações de conexão)
+$host = "localhost";
+$dbname = "bipfix";
+$user = "root";
+$pass = "";
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+
+    // Consulte o banco de dados para obter informações do usuário
+    $sql = "SELECT id_name, pub_name FROM account WHERE id_name = :id_name";  // Corrigido aqui
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id_name', $userId);
+    $stmt->execute();
+
+    // Verifique se a consulta foi bem-sucedida
+    if ($stmt->rowCount() > 0) {
+        $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+        $idName = $userData['id_name'];
+        $pubName = $userData['pub_name'];
+    } else {
+        $idName = "Usuário não encontrado"; // Adicione uma mensagem padrão
+    }
+} catch (PDOException $e) {
+    echo "Erro ao conectar ao banco de dados: " . $e->getMessage();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -13,7 +50,7 @@
     <body>
     <div class="tudo">
         <div class="gradient">
-    <div class="largura">Bem vindo de volta Display Name!</div>
+    <div class="largura"><h2>Olá, <?php echo $idName; ?>, suas ordens aparecerão aqui!</h2></div>
     <div class="caixazona">
     <div style="border: 0px; background-color: #424A53;" class="menu-lateral">
         <ul>
@@ -63,41 +100,87 @@
         </div><!--Termina o código da parte de detalhes da conta e suas ordens-->
         <div class="ordens">
             <div style="font-size: 40px;" class="texto">Suas ordens</div>
-            <div class="caixaordens"><a  class="ordensbutton">Compra</a>
-                <div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Querendo:</p>
-                    <h3 style="margin-top: 30%; color: white;">20.000 Sats</h3>
-                </div>
-                <div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Por:</p>
-                    <h3 style="margin-top: 46%; color: white;">R$ 30,47</h3>
-                </div>
-                <div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Expirará</p>
-                    <div class="tempo"><p style="margin-top: 30%; border-radius: 10px; background-color: white; padding: 5px; color: #34C848;">24H</p></div>
-                </div>
-            </div>
-            <div class="caixaordens"><a style="background-color: #FF6961;" class="ordensbutton">Venda</a>
-                <div class="ordenscolunas"><p style=" margin-top: 10%; margin-left: 10px; color: white;">Ofertando:</p>
-                    <h3 style="margin-top: 30%; color: white;">20.000 Sats</h3>
-                </div>
-                <div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Por:</p>
-                    <h3 style="margin-top: 46%; color: white;">R$ 30,47</h3>
-                </div>
-                <div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Expirará</p>
-                    <div style="background-color: #FFD700;" class="tempo"><p style="margin-top: 30%; border-radius: 10px; background-color: white; padding: 5px; color: #FFD700;">8H</p></div>
-                </div>
-            </div>
-            <div class="caixaordens"><a style="background-color: #FF6961;" class="ordensbutton">Venda</a>
-                <div class="ordenscolunas"><p style=" margin-top: 10%; margin-left: 10px; color: white;">Ofertando:</p>
-                    <h3 style="margin-top: 30%; color: white;">20.000 Sats</h3>
-                </div>
-                <div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Por:</p>
-                    <h3 style="margin-top: 46%; color: white;">R$ 30,47</h3>
-                </div>
-                <div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Expirará</p>
-                    <div style="background-color: #ff6a00;" class="tempo"><p style="margin-top: 30%; border-radius: 10px; background-color: white; padding: 5px; color: #FF6961;">5H</p></div>
-                </div>
-            </div>
+            <?php
+            // Inclua aqui a lógica de conexão com o banco de dados, se necessário
+            $host = "localhost";
+            $dbname = "bipfix";
+            $user = "root";
+            $pass = "";
+
+            try {
+                $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                echo "Erro na conexão com o banco de dados: " . $e->getMessage();
+                die();
+            }
+
+            // Lógica para obter ordens do usuário logado
+            $userIdentificador = isset($_SESSION['id_name']) ? $_SESSION['id_name'] : '';
+
+            if ($userIdentificador) {
+                $sql = "SELECT * FROM orders WHERE user_identifier = :user_identifier";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':user_identifier', $userIdentificador);
+                $stmt->execute();
+                $ordens = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                if ($ordens) {
+                    // Se o usuário tiver ordens
+                    foreach ($ordens as $ordem) {
+                        $tipoOrdem = ucfirst($ordem['type']);
+                        $corBotao = ($tipoOrdem == 'Compra') ? 'compra' : 'venda';
+                        echo '<div class="caixaordens">';
+                        echo '<a class="ordensbutton">' . $tipoOrdem . '</a>';
+                        echo '<div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Bônus/Ônus</p>';
+                        echo '<h3 style=" color: white;">' . $ordem['percentage'] . '%'. '</h3>';
+                        echo '</div>';
+                        echo '<div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Por:</p>';
+                        echo '<h3 style=" color: white;">R$' . $ordem['v_brl'] . '</h3>';
+                        echo '</div>';
+                        echo '<div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Apague:</p>';
+                        
+                        // Botão para apagar a ordem
+                        echo '<div class="botão2">';
+                        echo '<a class="botão2 ' . ($ordem['type'] == 'compra' ? 'compra' : 'venda') . '" onclick="confirmarExclusao(' . $ordem['id_order'] . ')">';
+                        echo '<i class="fa-solid fa-trash-can" style="color: white; display: flex; text-align:center; align-items: center; justify-content: center; font-size: 24px;"></i>';
+                        echo '</a>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                } else {
+                    // Se o usuário não tiver ordens
+                    echo '<p style="font-size: 20px; color: white;">Você não possui ordens ativas.</p>';
+                }
+            }
+                ?>
         </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var ordensButtons = document.querySelectorAll('.ordensbutton');
 
+        ordensButtons.forEach(function(button) {
+            var tipoOrdem = button.innerText.trim().toLowerCase();
+
+            if (tipoOrdem === 'compra') {
+                button.style.backgroundColor = '#34C848';
+                button.style.color = '#fff';
+            } else if (tipoOrdem === 'venda') {
+                button.style.backgroundColor = '#E74C3C';
+                button.style.color = '#fff';
+            }
+        });
+    });
+
+    function confirmarExclusao(idOrdem) {
+        var confirmacao = confirm("Tem certeza de que deseja excluir esta ordem?");
+        if (confirmacao) {
+            // Redireciona para o arquivo PHP que processa a exclusão
+            window.location.href = 'excluir_ordem.php?id=' + idOrdem;
+        }
+    }
+</script>
 </body>
 </html>
