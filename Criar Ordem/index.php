@@ -183,7 +183,7 @@ if (isset($_POST["submit"])) {
                 <div class="container-fluid container1 my-5">
                     <p>Quanto você quer <span id="acao_compra_venda">comprar</span>?</p>
                     <div class="input-group inputs d-flex justify-content-center my-4">
-                        <input type="number" class="form-control" placeholder="Insira um valor" required
+                        <input type="number" id="reaisInput" class="form-control" placeholder="Insira um valor" required
                             aria-label="Dollar amount (with dot and two decimal places)" name="valor_compra" min="1">
                         <span class="input-group-text divzinha">R$</span>
                     </div>
@@ -199,7 +199,7 @@ if (isset($_POST["submit"])) {
                         $tipo_ordem = $_POST['tipo_ordem'];
                         $valor_compra = isset($_POST['valor_compra']) ? $_POST['valor_compra'] . ' R$' : '0 R$';
                         $bonus_onus = isset($_POST['bonus_onus']) ? $_POST['bonus_onus'] . '%' : '0%';
-                        echo "<p style='margin-top: 60px !important;'>Você está criando uma ordem de $tipo_ordem de $valor_compra a uma taxa de $bonus_onus</p>";
+                        echo "<p style='margin-top: 60px !important;'>Você está criando uma ordem de $tipo_ordem de $valor_compra a uma taxa de $bonus_onus, totalizando <span id='satoshiResult'></span></p>";
                     }
                     ?>
                     <div class="divbotão my-4">
@@ -213,6 +213,8 @@ if (isset($_POST["submit"])) {
     </div>
     </main>
     <script>
+        
+        
         document.addEventListener('DOMContentLoaded', function () {
         var tipoOrdemBtn = document.getElementById('tipoOrdemBtn');
         var dropdownMenu = tipoOrdemBtn.nextElementSibling;
@@ -244,9 +246,11 @@ if (isset($_POST["submit"])) {
         // Altere o texto dentro do <span> em vez de dentro do <label>
         var acaoCompraVenda = document.getElementById('acao_compra_venda');
         acaoCompraVenda.innerText = tipoOrdem.toLowerCase();
-        mensagemOrdem.innerText = `Você está criando uma ordem de ${acaoCompraVenda.innerText} de ${valorCompra} R$ a uma taxa de ${bonusOnus}%`;
+        mensagemOrdem.innerText = `Você está criando uma ordem de ${acaoCompraVenda.innerText} de ${valorCompra} R$ a uma taxa de ${bonusOnus}% `;
     }
     });
+    
+
 
     function changeTipoOrdem(tipo) {
         var tipoOrdemBtn = document.getElementById('tipoOrdemBtn');
