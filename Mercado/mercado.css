@@ -120,8 +120,6 @@ body{
 .pagination {
     text-align: center;
     margin-top: 20px;
-}
-.pagination button {
     background-color: #424A53;
     color: white;
     padding: 10px 20px;
@@ -130,8 +128,17 @@ body{
     cursor: pointer;
     transition: .3s ease;
 }
-.pagination button:hover{
+.pagination:hover{
     transform: scale(1.2) rotate(8deg);
+}
+.pagination a{
+    text-decoration: none;
+}
+.pagination a:visited {
+    color: white;
+}
+.pagination a:active{
+    color: white;
 }
 .conteudo-centralizado {
     margin-left: 120px; /* Largura do menu lateral */

@@ -55,16 +55,17 @@
         </div>
         <div class="status-markets">
             <div class="market-row">
-                <?php include 'mercadodisplay.php';
-                ?>
-            </div>
-            <div class="market-row">
-                <?php include 'mercadodisplay.php';
-                ?>
+            <?php include 'mercadodisplay.php';
+                $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 0;
+                displayOrders('Compra', $currentPage);
+            ?>
             </div>
         </div>
-        <div class="pagination">
-            <button>Próxima Página</button>
+        <div  class="pagination">
+        <?php if ($currentPage > 0): ?>
+            <a href="?page=<?php echo $currentPage - 1; ?>">Página Anterior</a>
+        <?php endif; ?>
+            <a href="?page=<?php echo $currentPage + 1; ?>">Próxima Página</a>
         </div>
     </div>
 </div>
