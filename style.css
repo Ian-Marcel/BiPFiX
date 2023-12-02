@@ -153,7 +153,7 @@ section {
 	margin-right: 20px;
 }
 
-@media (min-width: 800px) {
+@media (max-height: 750px) {
 	.banner {
 		height: 600px;
 	}

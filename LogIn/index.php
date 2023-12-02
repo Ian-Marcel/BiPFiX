@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - BiPFiX</title>
-    <link rel="stylesheet" type="text/css" href="login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<body>
-    <div class="page">
-        <form action="login.php" method="POST" class="formLogin">
-        <h1>Login</h1>
-        <p>Digite os seus dados de acesso no campo abaixo.</p>
-            <label for="username"><i class="fa-solid fa-user"></i> Nome de Identificação</label>
-            <div class="container-input1">
-                <input class="input-field" type="text" name="id_name" placeholder="Digite seu nome de identificação" required autofocus="true" />
-            </div>
-            <label for="password"><i class="fa-solid fa-lock"></i> Senha</label>
-                <div class="show-password-toggle">
-                    <input class="input-field" type="password" name="passwd" placeholder="Digite sua senha" required/>
-                    <i class="show-password-icon far fa-eye-slash"></i>
-                </div>    
-            <a href="recuperarsenha.html">Esqueci minha senha</a>
-            <a href="cadastro.php">Ainda não tem conta? Cadastre-se</a>
-            <input type="submit" value="Entrar" class="btn"/>
-        </form>
-    </div>
-    <script>
-        const passwordInput = document.querySelector('input[type="password"]');
-        const showPasswordIcon = document.querySelector('.show-password-icon');
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - BiPFiX</title>
+        <link rel="shortcut icon" href="../Design/Icons/Favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <body style="background-color: #000000;">
+        <main>
+        <h1>Entre na sua conta</h1>
+            <form action="login.php" method="POST" class="formLogin">
+                <label for="username"><i class="fa-solid fa-user"></i> Nome de Identificação</label>
+                <div class="container-input1">
+                    <input class="input-field" type="text" name="id_name" placeholder="Digite seu nome de identificação" required autofocus="true" />
+                </div>
+                <label for="password"><i class="fa-solid fa-lock"></i> Senha</label>
+                    <div class="show-password-toggle">
+                        <input class="input-field" type="password" name="passwd" placeholder="Digite sua senha" required/>
+                        <i class="show-password-icon far fa-eye-slash"></i>
+                    </div>    
+                <a href="cadastro.php">Ainda não tem conta? Cadastre-se</a>
+                <input type="submit" value="Entrar" class="btn"/>
+            </form>
+        </main>
+        <script>
+            const passwordInput = document.querySelector('input[type="password"]');
+            const showPasswordIcon = document.querySelector('.show-password-icon');
 
-        showPasswordIcon.addEventListener('click', function() {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
+            showPasswordIcon.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
 
-            if (type === 'text') {
-                this.classList.remove('fa-eye-slash');
-                this.classList.add('fa-eye');
-            } else {
-                this.classList.remove('fa-eye');
-                this.classList.add('fa-eye-slash');
-            }
-        });
-    </script>
-</body>
+                if (type === 'text') {
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                } else {
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                }
+            });
+        </script>
+    </body>
 </html>
 <?php
 session_start(); // Inicie a sessão (se ainda não estiver iniciada)

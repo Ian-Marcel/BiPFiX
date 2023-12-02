@@ -10,7 +10,7 @@
         <title>BiPFiX - Mercado</title>
     </head>
     <body>
-            <!-- DOCK MENU -->
+    <!-- DOCK MENU -->
             <header id="dock">
                     <nav class="dock">
                         <ul>
@@ -33,17 +33,17 @@
                                 <a href="../Mercado/" class="APP" title="Mercado">
                                     <img src="../Design/Icons/Dock/Mercado.png" alt="MercadoIMG">
                                 </a>
+                                <span>Mercado</span>
                             </li>
                             <li>
                                 <a href="../Conta/" class="APP" title="Conta">
                                     <img src="../Design/Icons/Dock/Conta.png" alt="ContaIMG">
                                 </a>
-                                <span>Conta</span>
                             </li>
                         </ul>
                     </nav>
                 </header>
-                <!-- CONTEUDO -->
+    <!-- CONTEUDO -->
                 <h1>O que vai ser hoje?</h1>
                 <main>
                     <div class="box comprar">
