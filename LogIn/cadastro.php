@@ -5,71 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="../Design/Fonts/Montserrat/Montserrat.css">
+        <link rel="stylesheet" href="../Design/Fonts/Satoshi/css/satoshi.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="cadastro.css">
 </head>
+<!-- style="background-color: #000000;"-->
 <body>
-    <div class="page">
+    <div class="banner"><section></section></div>
+    <main>
+        <h1>Crie sua conta</h1>
         <form method="POST" class="formCadastro" action="cadastro.php">
-            <h1>Cadastro</h1>
-            <p>Preencha os campos abaixo para criar uma conta.</p>
-            <label for="username"><i class="fa-solid fa-user"></i> Nome de Identificação</label>
-            <div class="container-input1"></div>
-                <input class="input-field" type="text" name="id_name" placeholder="Escreva seu nome de Identificação" required autofocus="true"/>
-            <label for="username"><i class="fa-solid fa-user"></i> Nome de Exibição</label>
-            <div class="container-input2"></div>
-                <input class="input-field" type="text" name="pub_name" placeholder="Digite seu nome de exibição" required/>
-            <label for="password"><i class="fa-solid fa-lock"></i> Senha</label>
-            <div class="container-input6">
-                <div class="show-password-toggle">
-                    <input id="password" class="input-field" type="password" name="passwd" placeholder="Digite sua senha" required/>
-                    <i id="togglePassword" class="show-password-icon far fa-eye-slash"></i>
-                </div>    
-            </div>
-            <label for="password"><i class="fa-solid fa-lock"></i> Confirme a senha</label>
-            <div class="container-input6">
-                <div class="show-password-toggle">
-                    <input id="confirmPassword" class="input-field" type="password" name="confirmpassword" placeholder="Repita a senha" required/>
-                    <i id="toggleConfirmPassword" class="show-password-icon far fa-eye-slash"></i>
-                </div>    
-            </div>
-            <a href="../LogIn/login.php">Já tem uma conta? Faça login</a>
-            <input type="submit" value="Cadastrar" class="btn" />
-        </form>
-    </div>
-    <script>
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
-
-        togglePassword.addEventListener('click', function() {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-
-            if (type === 'text') {
-                this.classList.remove('fa-eye-slash');
-                this.classList.add('fa-eye');
-            } else {
-                this.classList.remove('fa-eye');
-                this.classList.add('fa-eye-slash');
-            }
-        });
-
-        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
-        const confirmPasswordInput = document.getElementById('confirmPassword');
-
-        toggleConfirmPassword.addEventListener('click', function() {
-            const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            confirmPasswordInput.setAttribute('type', type);
-
-            if (type === 'text') {
-                this.classList.remove('fa-eye-slash');
-                this.classList.add('fa-eye');
-            } else {
-                this.classList.remove('fa-eye');
-                this.classList.add('fa-eye-slash');
-            }
-        });
-    </script>
+                <label for="username"><i class="fa-solid fa-user"></i> Nome de Identificação</label>
+                    <input class="input-field" type="text" name="id_name" placeholder="Escreva seu nome de Identificação" required autofocus="true"/>
+                <label for="username"><i class="fa-solid fa-user"></i> Nome de Exibição</label>
+                    <input class="input-field" type="text" name="pub_name" placeholder="Digite seu nome de exibição" required/>
+                <label for="password"><i class="fa-solid fa-lock"></i> Senha</label>
+                        <input id="password" class="input-field" type="password" name="passwd" placeholder="Digite sua senha" required/>
+                </div>
+                <input type="submit" value="Cadastrar" class="btn" />
+                <a href="../LogIn/">Já tem uma conta? Faça login</a>
+            </form>
+    </main
 </body>
 </html>
 <?php
@@ -80,9 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_name = $_POST["id_name"];
     $pub_name = $_POST["pub_name"];
     $passwd = $_POST["passwd"];
-    $confirmpassword = $_POST["confirmpassword"];
 
-    if ($passwd == $confirmpassword) {
         try {
             
             $host = "localhost"; 
@@ -117,9 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Erro ao cadastrar: " . $e->getMessage();
             var_dump($e); // Exibe informações detalhadas do erro
         }
-        
-    } else {
-        echo "As senhas não coincidem.";
-    }
+    
 }
 ?>

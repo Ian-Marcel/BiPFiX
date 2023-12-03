@@ -1,183 +1,117 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* COFIGURAÇÕES GERAIS */
+html, body {
+	height: 100%;
+	background: #000000;
+    margin: 0%;
+    padding: 0%;
+	color: #E5E5EA;
+	font-size: 1rem;
+	line-height: 1.5; 
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-family: Satoshi-Variable, sans-serif;
+}
+a {
+	text-decoration: none;
+	color: #007AFF; 
+}
 
+/* FORTMATAÇÃO DE TEXTO */
+h1, h2, h3 {
+	font-family: Montserrat-Variable, sans-serif;
+}
+h1 {
+	font-size: 2rem; 
+}
+
+h2 {
+	font-size: 1.75rem; 
+}
+h3 {
+	font-size: 1.5rem; 
+}
+p, span, a, label {
+	font-size: 1rem;
+	line-height: 1.5;
+	font-family: Satoshi-Variable, sans-serif;
+	font-weight: 500;
+}
+
+/* CONTEUDO */
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #023047
-}
-
-.page {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    overflow: hidden;
-    background-color: #282829;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
+.banner {
+    float: left;
+    height: 100vh;
+    width: 65vw;
+    background-image: url('../Design/Images/LogIn/cadastro.png');
+    background-size: cover;
+    background-position: left;
+}
+.banner section {
+    height: 100%;
+    width: 100%;
+  /*  background-color: rgba(28, 28, 30, 0.1); */
+}
+main {
+    float: right;
+    height: 100vh;
+    width: 35vw;
+    background-color: #000;
+    padding: 0px 40px;
 
+}
 .formCadastro {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    border-radius: 7px;
-    padding: 40px;
-    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
-    gap: 5px;
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
-
-.container-input2 {
-    display: flex;
-    align-items: center;
-}
-
-.container-input3 {
-    display: flex;
-    align-items: center;
-}
-
-.container-input4 {
-    display: flex;
-    align-items: center;
-}
-
-.areaCadastro img {
-    width: 420px;
-}
-
-.formCadastro h1 {
-    padding: 0;
-    margin: 0;
-    font-weight: 500;
-    font-size: 2.3em;
-}
-
-.formCadastro p {
-    display: inline-block;
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.input-field {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.formCadastro input {
-    padding: 15px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    margin-top: 5px;
-    border-radius: 4px;
-    transition: all linear 160ms;
-    outline: none;
-}
-
-.formCadastro select {
-    padding: 15px;
-    font-size: 14px;
-    margin-bottom: 20px;
-    margin-top: 5px;
-    background-color: #fff;
-    border:1px solid #cccccc;
-    border-radius: 4px;
-}
-
-.formCadastro input:focus {
-    border: 1px solid #ffa51e;
-    transition: box-shadow 0.3s ease;
-}
-
-.formCadastro select:focus {
-    border: 1px solid #ffa51e;
-    transition: box-shadow 0.3s ease;
-}
-
-.input-field:focus, .input-field:valid, .input-field:invalid {
-    border-color: #ccc;
-}
-
-.input-field:focus, .input-field:valid {
-    animation: input-succes 0.5s; /*só adicionar mais um "s" para formar a plavra "success" certinho para ter um efeito de expansão*/
-}
-
-
-.input-field:focus, .input-field:valid {
-    box-shadow: 0 0 5px #ffa51e;
-}
-
-.formCadastro label {
-    font-size: 14px;
-    font-weight: 600;
+    gap: 15px;
 }
 
 .formCadastro a {
-    display: inline-block;
-    margin-bottom: 20px;
-    font-size: 13px;
-    color: #555;
-    transition: all linear 160ms;
+    margin-top: 10px;
+    font-size: 1rem;
 }
 
 .formCadastro a:hover {
-    color: #ff9900;
+    text-decoration: underline;
 }
 
-.show-password-toggle {
-    position: relative;
-}
 
-.show-password-toggle input[type="password"] {
-    padding-right: 30px;
-}
-
-.show-password-toggle .show-password-icon {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-90%);
-    cursor: pointer;
+.formCadastro input {
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 500px;
+    outline: none;
+    border: none;
 }
 
 .btn {
-    background-color: #ffa51e;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    border: none !important;
-    transition: all linear 160ms;
-    cursor: pointer;
-    margin: 0 !important;
-
+    width: 210px;
+    background-color: #007AFF ;
+	font-family: Montserrat-Variable, sans-serif;
+    font-weight: bolder;
+    font-size: 1rem;
+    transition: all linear 200ms ;
+    cursor: pointer ;
+	color: #E5E5EA;
 }
 
 .btn:hover {
-    transform: scale(1.05);
-    background-color: #db8708;
+    background-color: #E5E5EA ;
+    color: #007AFF;
 }
 
 @keyframes input-success {
     0% {
-      transform: scale(1);
+    transform: scale(1);
     }
     50% {
-      transform: scale(1.1);
+    transform: scale(1.1);
     }
     100% {
-      transform: scale(1);
-    }
-}
-
-@media screen and (max-width: 700px){
-    .formCadastro{
-        width: 280px;
+    transform: scale(1);
     }
 }
