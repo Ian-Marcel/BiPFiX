@@ -11,39 +11,38 @@
     <title>BiPFiX - Mercado</title>
 </head>
 <body>
-    <div class="caixaprincipal">
-    <div style="border: 0px; background-color: #424A53;" class="menu-lateral">
-        <ul>
-            <li>
-                <a href="../Mais/" class="menu-item">
-                    <img src="../Design/Icons/Dock/Mais.png">
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    <img src="../Design/Icons/Dock/Suas ordens.png">
-                </a>
-            </li>
-            <li>
-                <a href="../Criar Ordem" class="menu-item">
-                    <img src="../Design/Icons/Dock/Criar ordem.png">
-                </a>
-            </li>
-            <li>
-                <a href="../Mercado/" class="menu-item">
-                    <img src="../Design/Icons/Dock/Mercado.png">
-                </a>
-                <span style="color: white;">
-                    Mercado
-                </span>
-            </li>
-            <li>
-                <a href="../Conta/" class="menu-item">
-                    <img src="../Design/Icons/Dock/Conta.png">
-                </a>
-            </li>
-        </ul>
-    </div>
+<header id="dock">
+            <nav class="dock">
+                <ul>
+                    <li>
+                        <a href="../Mais/" class="APP" title="Mais">
+                            <img src="../Design/Icons/Dock/Mais.png" alt="MaisIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Suas Ordens/" class="APP" title="Suas Ordens">
+                            <img src="../Design/Icons/Dock/Suas ordens.png" alt="Suas_OrdensIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Criar Ordem/" class="APP" title="Criar Ordem">
+                            <img src="../Design/Icons/Dock/Criar ordem.png" alt="Criar_OrdemIMG">
+                        </a>
+                        <span>Criar Ordem</span>
+                    </li>
+                    <li>
+                        <a href="../Mercado/" class="APP" title="Mercado">
+                            <img src="../Design/Icons/Dock/Mercado.png" alt="MercadoIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Conta/" class="APP" title="Conta">
+                            <img src="../Design/Icons/Dock/Conta.png" alt="ContaIMG">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
     <div class="conteudo-centralizado">
         <div class="mercado-status">
             <div style="background-color: #34C848" class="status-box">
@@ -68,6 +67,5 @@
             <a href="?page=<?php echo $currentPage + 1; ?>">Próxima Página</a>
         </div>
     </div>
-</div>
 </body>
 </html>
