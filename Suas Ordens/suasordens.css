@@ -1,185 +1,125 @@
-body{
-    background-color: #252A34;
+/* INICIO CSS*/
+html, body {
+	height: 100%;
+    margin: 0%;
+	padding: 0%;
+    display: grid;
+    place-items: center;
+	overflow-x: hidden;
+	overflow-y: auto;
+    background: #000000;
+	font-family: Satoshi-Variable, sans-serif;
+    color: #E5E5EA;
+	font-size: 1rem;
+	line-height: 1.5;
 }
-.tudo{
-    height: auto;
-}
-.gradient{
-    width: 100%;
-  height: 800px;
-  padding: 0px;
-  margin: 0px;
-}
-.largura{
-    width: 97.85%;
-    height: auto;
-    background-color: #252A34;
-    padding: 20px;
-    color: white;
-    margin-bottom: 2%;
-    text-align: center;
-    font-family: Montserrat;
-    font-weight: bold;
-    font-size: 36px;
+a {
+	text-decoration: none;
+	color: #007AFF;
 }
 
-.menu-lateral {
-    display: flex;
-    width: 120px;
-    height: auto;
-    position: absolute;
-    position: fixed;
-    top: 30%;
-    left: 4%;
-    overflow: hidden;
-    background-color: #424A53; 
-    border-radius: 25px;
-    padding: 20px 0;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+/* FORTMATAÇÃO DE TEXTO */
+h1, h2, h3 {
+	font-family: Montserrat-Variable, sans-serif;
+}
+h1 {
+	font-size: 2rem; 
+}
+h2 {
+	font-size: 1.75rem; 
+}
+h3 {
+	font-size: 1.5rem; 
+}
+p, span, label {
+	font-size: 1rem;
+	line-height: 1.5;
+	font-family: Satoshi-Variable, sans-serif;
+	font-weight: 500;
 }
 
-.menu-lateral ul {
-    list-style: none;
-    padding: 0;
+/* DOCK MENU */
+#dock{
+	position: fixed;
+	left: 0px;
+	color: #E5E5EA;
+	padding: 20px;
+	z-index: 999;
+	margin: auto;
+    display: grid;
+	place-items: center;
 }
-
-.menu-lateral li {
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 10px;
+.dock {
+	background: rgba(34, 34, 34, 0.80);
+	border: solid 1px #333;
+	margin: 0px;
+	overflow: auto;
+	padding: 0px;
+	border-radius: 2rem;
 }
-
-.menu-lateral a {
-    text-decoration: none;
-    color: white;
-    display: block;
-    font-size: 18px;
-    position: relative;
-}
-
-.menu-lateral i {
-    font-size: 35px;
-    transform: 0.3s;
-}
-
-.menu-item:hover i {
-    transform: scale(1.2); 
-}
-
-.menu-item.active i {
-    transform: scale(1.2); 
-}
-
-.menu-item span {
-    display: none; 
-}
-
-.menu-item.active span {
-    display: block; 
-}
-
-
-.caixazona{
-    height: auto;
-    background-color: #252A34;
-    padding: 20px;
-    width: 90vw;
-    display: flex;
-}
-.caixazonadireita{
-    width: 90%;
-    position: relative;
-    left: 16.5%;
-    display: flex;
-    justify-content: space-around;
-    height: auto;
-
-    min-height: 80vh;
-}
-.detalhescontainer{
-    height: auto;
-    margin-left: 1%;
-    margin-bottom: 1%;
-    flex-wrap: wrap;
-    min-height: 100%;
-    -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    min-width: 37%;
-    justify-content: space-evenly;
-    width: auto;
-    overflow: hidden;
-    border-radius: 30px;
-    background-color: rgb(59, 59, 59);
-    display: flex;
+.dock ul {
+	scroll-snap-type: x mandatory;
+	display: flex;
     flex-direction: column;
+	gap: 1.5rem;
+	margin: 0px;
+	padding: 1rem;
+	scroll-padding: 1rem;
 }
+.dock li {
+	display: grid;
+	place-items: center;
+}
+
+/* INFORMAÇÕES DA SUAS ORDENS */
 .ordens{
-    height: auto;
-    -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    margin-left: 1%;
-    margin-bottom: 1%;
-    flex-wrap: wrap;
-    padding: 15px;
-    min-height: 100%;
-    min-width: 37%;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow: hidden;
-    border-radius: 30px;
-    background-color: #e47c22;
-    display: flex;
-    flex-direction: column;
+	background-color: #1C1C1EFF;
+	border: solid 1px #333;
+    margin: auto;
+    border-radius: 1rem;
+    margin-top: 100px;
+    display: grid;
+	grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    gap: 15px;
 }
 .caixaordens{
-    width: 90%;
-    height: auto;
+    width: 200px;
+    height: 200px;
     display: flex;
-    background-color: #000000b8;
-    font-family: 'Montserrat';
-    border-radius: 12px;
-    padding: 20px;
-    gap: 5%;
-    overflow: hidden;
+    padding: 5px;
+    flex-direction: column;
+    background-color: #333;
+    border-radius: 1rem;
     justify-content: space-evenly;
 }
 .ordensbutton {
-        display: inline-block;
-        padding: 8px;
-        border-radius: 5px;
+    padding: 0.5rem;
+        margin-top: 0%;
+        border-radius: 1rem;
         cursor: pointer;
     }
 
     .compra {
         background-color: #34C848; /* Verde para ordens de compra */
-        color: #fff; /* Cor do texto para ordens de compra */
     }
 
     .venda {
         background-color: #E74C3C; /* Vermelho para ordens de venda */
-        color: #fff; /* Cor do texto para ordens de venda */
     }
 
 .botão2 {
-    background-color: #fff; /* Cor de fundo padrão para o botão */
-    border: 1px solid #fff; /* Cor da borda padrão para o botão */
+    background-color: #ff0000; /* Cor de fundo padrão para o botão */
+    border: none; /* Cor da borda padrão para o botão */
     display: inline-block;
-    padding: 8px;
-    border-radius: 5px;
+    border-radius: 1rem;
+    max-width: 100%;
+    padding: 0.5rem;
     cursor: pointer;
+    text-align: center;
+    color: #fff;
 }
 
-.botão2:hover {
-    background-color: #ddd; /* Cor de fundo ao passar o mouse sobre o botão */
-}
-.ordenscoluna{
-    display: flex;
-    color: white;
-    flex-direction: column;
-    overflow: hidden;
-}
 .tempo{
     border-radius: 50%;
     background-color: #34C848;
@@ -189,21 +129,15 @@ body{
     align-items: center;
 }
 .texto{
-    font-family: Montserrat;
-    font-size: 30px;
     font-weight: bold;
-    color: white;
     padding: 10px;
     display: flex;
     justify-content: center;
     text-align: center;
 }
 .texto2{
-    font-family: Montserrat;
-    font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
-    color: white;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -211,10 +145,7 @@ body{
 }
 .centro{
     display: flex;
-    font-family: Montserrat;
-    color: white;
     flex-wrap: wrap;
-    font-size: 15px;
     padding: 10px;
     text-align: center;
     justify-content: center;
@@ -222,23 +153,12 @@ body{
 }
 .centro2{
     display: flex;
-    font-family: Montserrat;
-    color: white;
-    font-size: 15px;
     margin: 5%;
     text-align: center;
     align-items: center;
 }
-label {
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    margin-right: 10px; 
-}
 #userID, #publicName {
     background-color: rgb(240, 240, 240);
-    color: black;
-    font-size: 20px;
     padding: 10px;
     border: 2px solid black;
     border-radius: 10px;
@@ -274,7 +194,6 @@ input[type="text"]{
     margin-top: 10px;
     margin-bottom: 10px;
     height: 40px;
-    color: white;
     background-color: black;
     border-radius: 10px;
     border: 3px solid #ffffff;
@@ -291,7 +210,6 @@ input[type="password"]{
     margin-top: 10px;
     margin-bottom: 10px;
     height: 40px;
-    color: white;
     background-color: black;
     border-radius: 10px;
     border: 3px solid #ffffff;
@@ -306,12 +224,10 @@ input[type="password"]:-moz-placeholder{
 }
 input[type="submit"]{
     background-color: black;
-    color: white;
     border-radius: 12px;
     border: 2px solid white;
     transition: .3s ease;
     padding: 5px;
-    font-family: montserrat;
 }
 input[type="submit"]:hover{
     transform: scale(1.1);
@@ -320,126 +236,9 @@ input[type="submit"]:hover{
     background-color: white;
     color: black;   
 }
-.blocoterceiro{
-    width: 60%;
-    height: auto;
-    display: flex;
-    border: 4px solid black;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffc400;
-    border-radius: 25px;
-}
 
-p, span, label {
-    font-size: 1rem;
-    line-height: 1.5;
-    font-family: Satoshi-Variable, sans-serif;
-    font-weight: 500;
-  }
-  
-  main section div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: auto;
-    width: 250px;
-    gap: 10px;
-  }
-  
-  .show_username span {
-    color: #007AFF;
-    background: #333;
-    border-radius: 7.5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 30px;
-  }
-
-@media (max-width: 768px) {
-    .largura {
-        font-size: 24px; 
-    }
-
-}
-@media (max-width: 850px) {
-    .texto {
-        font-size: 16px; 
+@media (max-height: 750px) {
+    .ordens{
+        grid-template-columns: repeat(3, 1fr);
     }
 }
-/* ----------------------------------------------
- * Generated by Animista on 2023-10-25 20:5:42
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation slide-in-right
- * ----------------------------------------
- */
- @-webkit-keyframes slide-in-right {
-    0% {
-      -webkit-transform: translateX(1000px);
-              transform: translateX(1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slide-in-right {
-    0% {
-      -webkit-transform: translateX(1000px);
-              transform: translateX(1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  /* ----------------------------------------------
- * Generated by Animista on 2023-10-25 20:44:38
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation slide-in-left
- * ----------------------------------------
- */
-@-webkit-keyframes slide-in-left {
-    0% {
-      -webkit-transform: translateX(-1000px);
-              transform: translateX(-1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slide-in-left {
-    0% {
-      -webkit-transform: translateX(-1000px);
-              transform: translateX(-1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  

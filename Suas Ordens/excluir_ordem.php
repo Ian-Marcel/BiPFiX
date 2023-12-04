@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
         $stmt->execute();
 
         // Redirecione de volta para a página de ordens
-        header("Location: index.php");
+        header("Location: ../Suas Ordens/");
         exit();
     } catch (PDOException $e) {
         echo "Erro ao excluir a ordem: " . $e->getMessage();

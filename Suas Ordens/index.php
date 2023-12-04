@@ -2,7 +2,7 @@
 session_start(); // Certifique-se de iniciar a sessão no início do script
 
 if (!isset($_SESSION['id_name'])) {
-    header("Location: ../LogIn/login.php");
+    header("Location: ../LogIn/");
     exit();
 }
 
@@ -48,58 +48,43 @@ try {
         <title>BiPFiX - Suas Ordens</title>
     </head>
     <body>
-    <div class="tudo">
-        <div class="gradient">
-    <div class="largura"><h2>Olá, <?php echo $idName; ?>, suas ordens aparecerão aqui!</h2></div>
-    <div class="caixazona">
-    <div style="border: 0px; background-color: #424A53;" class="menu-lateral">
-        <ul>
-            <li>
-                <a href="../Mais/" class="menu-item">
-                    <img src="../Design/Icons/Dock/Mais.png">
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    <img src="../Design/Icons/Dock/Suas ordens.png">
-                </a>
-                <span style="font-family: montserrat; font-size: 15px; color:white; padding-top: 10px;">
-                    Suas Ordens
-                </span>
-            </li>
-            <li>
-                <a href="../Criar Ordem" class="menu-item">
-                    <img src="../Design/Icons/Dock/Criar ordem.png">
-                </a>
-            </li>
-            <li>
-                <a href="../Mercado/" class="menu-item">
-                    <img src="../Design/Icons/Dock/Mercado.png">
-                </a>
-            </li>
-            <li>
-                <a href="../Conta/" class="menu-item">
-                    <img src="../Design/Icons/Dock/Conta.png">
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="caixazonadireita">
-        <div class="detalhescontainer"><!--Começa o código da parte de detalhes da conta e suas ordens-->
-            <div style="background-color: rgb(59, 59, 59);" class="setor">
-                <div style="font-size: 40px;" class="texto">Detalhes da conta</div>
-                <div class="texto" style="font-size: 20px; margin-top: 20px;">ID:</div>
-                <label for="id"></label>
-                <input type="text" name="id"  required>
-                <label for="nomepublico"><b style="font-family: montserrat; padding-top: 50px;">Nome Público:</b></label>
-                <input type="text" name="nomepublico" required>
-                <div class="texto" style="font-size: 20px;">Senha:</div>
-                <label for="senha"></label>
-                <input type="password" name="senha"  required>
-            </div>
-        </div><!--Termina o código da parte de detalhes da conta e suas ordens-->
+    <!-- DOCK MENU -->
+    <header id="dock">
+            <nav class="dock">
+                <ul>
+                    <li>
+                        <a href="../Mais/" class="APP" title="Mais">
+                            <img src="../Design/Icons/Dock/Mais.png" alt="MaisIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Suas Ordens/" class="APP" title="Suas Ordens">
+                            <img src="../Design/Icons/Dock/Suas ordens.png" alt="Suas_OrdensIMG">
+                        </a>
+                        <span>Suas Ordens</span>
+                    </li>
+                    <li>
+                        <a href="../Criar Ordem/" class="APP" title="Criar Ordem">
+                            <img src="../Design/Icons/Dock/Criar ordem.png" alt="Criar_OrdemIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Mercado/" class="APP" title="Mercado">
+                            <img src="../Design/Icons/Dock/Mercado.png" alt="MercadoIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Conta/" class="APP" title="Conta">
+                            <img src="../Design/Icons/Dock/Conta.png" alt="ContaIMG">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+    <!-- INFORMAÇÕES DA SUAS ORDENS -->
         <div class="ordens">
-            <div style="font-size: 40px;" class="texto">Suas ordens</div>
             <?php
             // Inclua aqui a lógica de conexão com o banco de dados, se necessário
             $host = "localhost";
@@ -124,29 +109,19 @@ try {
                 $stmt->bindParam(':user_identifier', $userIdentificador);
                 $stmt->execute();
                 $ordens = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
                 if ($ordens) {
-                    // Se o usuário tiver ordens
                     foreach ($ordens as $ordem) {
                         $tipoOrdem = ucfirst($ordem['type']);
                         $corBotao = ($tipoOrdem == 'Compra') ? 'compra' : 'venda';
                         echo '<div class="caixaordens">';
-                        echo '<a class="ordensbutton">' . $tipoOrdem . '</a>';
-                        echo '<div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Bônus/Ônus</p>';
-                        echo '<h3 style=" color: white;">' . $ordem['percentage'] . '%'. '</h3>';
-                        echo '</div>';
-                        echo '<div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Por:</p>';
-                        echo '<h3 style=" color: white;">R$' . $ordem['v_brl'] . '</h3>';
-                        echo '</div>';
-                        echo '<div class="ordenscolunas"><p style="margin-top: 10%; margin-left: 10px; color: white;">Apague:</p>';
-                        
-                        // Botão para apagar a ordem
-                        echo '<div class="botão2">';
-                        echo '<a class="botão2 ' . ($ordem['type'] == 'compra' ? 'compra' : 'venda') . '" onclick="confirmarExclusao(' . $ordem['id_order'] . ')">';
-                        echo '<i class="fa-solid fa-trash-can" style="color: white; display: flex; text-align:center; align-items: center; justify-content: center; font-size: 24px;"></i>';
-                        echo '</a>';
-                        echo '</div>';
-                        echo '</div>';
+                                echo '<h3 class="ordensbutton">' . $tipoOrdem . '</h3>';
+                                echo '<span>Valor de R$' . $ordem['v_brl'] . '</span>';
+                                echo '<span> A ' .$ordem['percentage']. '% do mercado</span>';
+                                echo '<span>R$ ' . $ordem['v_brl'] . " = " . round($ordem['v_brl'] / 190000 * 100000000) . ' Sats</span> </br>' ;
+                            // Botão para apagar a ordem
+                                echo '<a class="botão2 ' . ($ordem['type'] == 'compra' ? 'compra' : 'venda') . '" onclick="confirmarExclusao(' . $ordem['id_order'] . ')">';
+                                echo '<span>Apagar Ordem</span>';
+                                echo '</a>';
                         echo '</div>';
                     }
                 } else {
@@ -156,7 +131,6 @@ try {
             }
                 ?>
         </div>
-</div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var ordensButtons = document.querySelectorAll('.ordensbutton');

@@ -203,7 +203,8 @@ if (isset($_POST["submit"])) {
                     <div class="divbotão my-4">
                         <input type="submit" name="submit" class="botão" value="Criar Ordem">
                     </div>
-                    <p class="p1">1 Bitcoin = 190.000 R$</p>
+                    <p class="p1">1 Bitcoin = R$ 190.000 | 1 Satoshi = 0.00000001 Bitcoin
+                    </p>
                 </div>
             </form>
         </div>
