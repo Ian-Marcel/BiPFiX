@@ -130,8 +130,7 @@ if (isset($_POST["submit"])) {
     <link rel="shortcut icon" href="../Design/Icons/Favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body class="custom">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<body style="background: #000000;">
         <!-- DOCK MENU -->
         <header id="dock">
             <nav class="dock">
@@ -167,16 +166,15 @@ if (isset($_POST["submit"])) {
         </header>
 
     <main>
-
         <div class="criar">
         <form action="index.php" method="post">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="tipoOrdemBtn">
-                        Compra
+                        Tipo
                     </button>
                     <ul class="dropdown-menu">
                         <li><button class="dropdown-item verde" type="button" onclick="changeTipoOrdem('Compra')">Compra</button></li>
-                        <li><button class="dropdown-item vermelho" type="button" onclick="changeTipoOrdem('Venda')">Venda</button></li>
+                        <li><button class="dropdown-item vermelho" id="vermelho" type="button" onclick="changeTipoOrdem('Venda')">Venda</button></li>
                     </ul>
                     <input type="hidden" name="tipo_ordem" id="tipo_ordem_input" value="Compra">
                 </div>
@@ -205,15 +203,24 @@ if (isset($_POST["submit"])) {
                     <div class="divbotão my-4">
                         <input type="submit" name="submit" class="botão" value="Criar Ordem">
                     </div>
-                    <p class="p1">Valor desses bitcoins no mercado: 130.000 R$/BTC</p>
+                    <p class="p1">1 Bitcoin = 190.000 R$</p>
                 </div>
             </form>
-            <a class="botão2" onclick="limparFormulario()"><i class="fa-solid fa-trash-can"></i></a>
         </div>
     </div>
     </main>
     <script>
-        
+        function changeTipoOrdem(tipo) {
+    // Código para mudar o tipo de ordem
+    document.getElementById('tipo_ordem_input').value = tipo;
+
+    // Remover a classe active de todos os botões
+    $('.dropdown-menu button').removeClass('active');
+
+    // Adicionar a classe active apenas ao botão clicado
+    $(event.target).addClass('active');
+}
+
         
         document.addEventListener('DOMContentLoaded', function () {
         var tipoOrdemBtn = document.getElementById('tipoOrdemBtn');

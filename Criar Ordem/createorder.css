@@ -1,49 +1,39 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.custom{
-    background-color: #000;
-
-    display: grid;
-    place-items: center;
-}
-
-body {
-    background-color: #000;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    display: grid;
-    place-items: center;
-}
-
-
 .criar{
-    color: #ffffff;
-    min-width: 200px;
-    height: 500px;
+    color: #E5E5EA;
+    width: 400px;
+    height: 550px;
+    background-color: #1C1C1EFF;
+	border: solid 1px #333;
     overflow: hidden;
     border-radius: 15px;
-    margin: auto;
+    margin: 0px;
 }
 
 .btn{
-    background-color: #34C848 !important;
-    color: #fff !important;
-    margin: 15px 0px 0px 15px; 
-    min-width: 25% !important;
+    background-color: #333 !important;
+    width: 100px;
+    height: 40px;
+    color: #E5E5EA !important;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: -1px;
+    border: 0px solid;
+    border-radius: 5px !important;
 }
 
-.btn:hover{
-    background-color: #1d7929 !important;
+.btn:focus {
+    border-end-start-radius: 0px !important;
+    border-end-end-radius: 0px !important;
 }
 
 .verde{
     background-color: #34C848 !important;
+    height: 40px;
     color: #fff !important;
-    
+    margin-bottom: -1px;
+    border: 0px solid;
+    margin-left: 15px;
+    width: 100px !important;
 }
 
 .verde:hover{
@@ -52,19 +42,25 @@ body {
 
 .vermelho{
     background-color: #FF6961 !important;
+    height: 40px;
     color: #fff !important;
-    
+    margin-bottom: -1px;
+    border: 0px solid;
+    margin-left: 15px;
+    width: 100px !important;
+    border-radius: 0px 0px 5px 5px !important;
 }
 
-.vermelho:hover{
-    background-color: #b14944 !important;
+.vermelho.active {
+    border-radius: 5px !important;
 }
 
 .dropdown-menu{
     background: none !important;
-    border-radius: 15px !important;
+    border: none !important;
     min-width: 25% !important;
-    padding: 0 !important;
+    margin: 0px !important;
+    padding: 0px !important;
 }
 
 .brasilf{
@@ -75,7 +71,7 @@ body {
 .divzinha{
     background-color: #3498DB !important;
     border-color: #3498DB !important;
-    color: #ffffff !important;
+    color: #E5E5EA !important;
     text-align: center !important;
     display: flex;
     align-items: center;
@@ -86,11 +82,12 @@ body {
 }
 
 .divzinha p{
-    margin: 0 !important;
+    margin: auto !important;
+    font-weight: bolder !important;
 }
 
 .container1 p{
-    text-align: center;
+    text-align: center !important;
 }
 
 .form-control{
@@ -100,9 +97,9 @@ body {
 .botão{
     text-decoration: none;
     background-color: #14A2DF;
-    color: #ffffff;
+    color: #E5E5EA;
     padding: 10px;
-    border-radius: 12px;
+    border-radius: 5px;
     min-width: 150px;
     border: none !important;
 }
@@ -115,65 +112,4 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-}
-
-.divbotão b{
-    font-size: 20px;
-}
-
-.p1{
-    font-size: 12px;
-    margin-top: 12px;
-}
-
-.botão2{
-    border: transparent;
-    border-radius: 5px;
-    width: 40px;
-    height: 40px;
-    background-color: #ff5a51;
-    color: #ffffff;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin: 0px 0px 20px 20px; 
-    cursor: pointer;
-    font-size: 30px;
-}
-
-.botão2:hover{
-    background-color: #da4f47;
-}
-
-/* DOCK MENU */
-#dock{
-	position: fixed;
-	left: 0px;
-	color: #E5E5EA;
-	padding-left: 20px;
-	z-index: 999;
-	margin: auto;
-    display: grid;
-	place-items: center;
-}
-.dock {
-	background: rgba(34, 34, 34, 0.80);
-	border: solid 1px #333;
-	margin: 0px;
-	overflow: auto;
-	padding: 0px;
-	border-radius: 2rem;
-}
-.dock ul {
-	scroll-snap-type: x mandatory;
-	display: flex;
-    flex-direction: column;
-	gap: 1.5rem;
-	margin: 0px;
-	padding: 1rem;
-	scroll-padding: 1rem;
-}
-.dock li {
-	display: grid;
-	place-items: center;
 }

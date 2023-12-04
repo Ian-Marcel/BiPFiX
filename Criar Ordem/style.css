@@ -1,8 +1,4 @@
 /** Hello CSS*/
-body {
-margin: 0px;
-
-}
 html, body {
 	height: 100%;
     margin: 0%;
@@ -74,24 +70,4 @@ p, span, label {
 .dock li {
 	display: grid;
 	place-items: center;
-}
-
-/* FORMULÁRIO DE CRIAÇÃO DE ORDEM */
-main {
-    margin: auto;
-    width: 400px;
-    height: 550px;
-    background-color: #1C1C1EFF;
-	border: solid 1px #333;
-    border-radius: 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-form {
-    text-align: justify;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
 }
