@@ -73,11 +73,9 @@ p, span, label {
 
 /* INFORMAÇÕES DA SUAS ORDENS */
 .ordens{
-	background-color: #1C1C1EFF;
-	border: solid 1px #333;
     margin: auto;
     border-radius: 1rem;
-    margin-top: 100px;
+    margin-top: 50px;
     display: grid;
 	grid-template-columns: repeat(4, 1fr);
     padding: 10px;
