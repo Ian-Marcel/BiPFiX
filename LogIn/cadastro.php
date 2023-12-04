@@ -14,8 +14,8 @@
 <body>
     <div class="banner"><section></section></div>
     <main>
-        <h1>Crie sua conta</h1>
         <form method="POST" class="formCadastro" action="cadastro.php">
+        <h1>Crie sua conta</h1>
                 <label for="username"><i class="fa-solid fa-user"></i> Nome de Identificação</label>
                     <input class="input-field" type="text" name="id_name" placeholder="Escreva seu nome de Identificação" required autofocus="true"/>
                 <label for="username"><i class="fa-solid fa-user"></i> Nome de Exibição</label>
