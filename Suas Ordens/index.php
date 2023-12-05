@@ -99,7 +99,7 @@ try {
                 echo "Erro na conexão com o banco de dados: " . $e->getMessage();
                 die();
             }
-
+            
             // Lógica para obter ordens do usuário logado
             $userIdentificador = isset($_SESSION['id_name']) ? $_SESSION['id_name'] : '';
 
@@ -115,9 +115,9 @@ try {
                         $corBotao = ($tipoOrdem == 'Compra') ? 'compra' : 'venda';
                         echo '<div class="caixaordens">';
                                 echo '<h3 class="ordensbutton">' . $tipoOrdem . '</h3>';
+                                echo '<span style="font-size: 20px;">' . round($ordem['v_brl'] / 190000 * 100000000 * (1 + ($ordem['percentage'] / 100))) . ' Sats</span>' ;
                                 echo '<span>Valor de R$' . $ordem['v_brl'] . '</span>';
                                 echo '<span> A ' .$ordem['percentage']. '% do mercado</span>';
-                                echo '<span>R$ ' . $ordem['v_brl'] . " = " . round($ordem['v_brl'] / 190000 * 100000000) . ' Sats</span> </br>' ;
                             // Botão para apagar a ordem
                                 echo '<a class="botão2 ' . ($ordem['type'] == 'compra' ? 'compra' : 'venda') . '" onclick="confirmarExclusao(' . $ordem['id_order'] . ')">';
                                 echo '<span>Apagar Ordem</span>';

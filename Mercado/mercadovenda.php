@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="mercado.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Design/Fonts/Satoshi/css/satoshi.css">
     <link rel="stylesheet" href="../Design/Fonts/Montserrat/Montserrat.css">
     <link rel="shortcut icon" href="../Design/Icons/Favicon.ico" type="image/x-icon">
@@ -11,40 +11,40 @@
     <title>BiPFiX - Mercado</title>
 </head>
 <body>
-    <div class="caixaprincipal">
-    <div style="border: 0px; background-color: #424A53;" class="menu-lateral">
-        <ul>
-            <li>
-                <a href="../Mais/" class="menu-item">
-                    <img src="../Design/Icons/Dock/Mais.png">
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item">
-                    <img src="../Design/Icons/Dock/Suas ordens.png">
-                </a>
-            </li>
-            <li>
-                <a href="../Criar Ordem" class="menu-item">
-                    <img src="../Design/Icons/Dock/Criar ordem.png">
-                </a>
-            </li>
-            <li>
-                <a href="../Mercado/" class="menu-item">
-                    <img src="../Design/Icons/Dock/Mercado.png">
-                </a>
-                <span style="color: white;">
-                    Mercado
-                </span>
-            </li>
-            <li>
-                <a href="../Conta/" class="menu-item">
-                    <img src="../Design/Icons/Dock/Conta.png">
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="conteudo-centralizado">
+        <!-- DOCK MENU -->
+        <header id="dock">
+            <nav class="dock">
+                <ul>
+                    <li>
+                        <a href="../Mais/" class="APP" title="Mais">
+                            <img src="../Design/Icons/Dock/Mais.png" alt="MaisIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Suas Ordens/" class="APP" title="Suas Ordens">
+                            <img src="../Design/Icons/Dock/Suas ordens.png" alt="Suas_OrdensIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Criar Ordem/" class="APP" title="Criar Ordem">
+                            <img src="../Design/Icons/Dock/Criar ordem.png" alt="Criar_OrdemIMG">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Mercado/" class="APP" title="Mercado">
+                            <img src="../Design/Icons/Dock/Mercado.png" alt="MercadoIMG">
+                        </a>
+                        <span>Mercado</span>
+                    </li>
+                    <li>
+                        <a href="../Conta/" class="APP" title="Conta">
+                            <img src="../Design/Icons/Dock/Conta.png" alt="ContaIMG">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
         <div class="mercado-status">
             <div class="status-box">
                 <div class="status-header">
@@ -53,21 +53,9 @@
                 </div>
             </div>
         </div>
-        <div class="status-markets">
-            <div class="market-row">
             <?php include 'mercadodisplay.php';
                 $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 0;
-                displayOrders('Venda', $currentPage);
+                displayOrders('Compra', $currentPage);
             ?>
-            </div>
-        </div>
-        <div  class="pagination">
-        <?php if ($currentPage > 0): ?>
-            <a href="?page=<?php echo $currentPage - 1; ?>">Página Anterior</a>
-        <?php endif; ?>
-            <a href="?page=<?php echo $currentPage + 1; ?>">Próxima Página</a>
-        </div>
-    </div>
-</div>
 </body>
 </html>
