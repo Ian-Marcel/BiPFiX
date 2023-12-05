@@ -109,6 +109,22 @@ p, span, label {
     top: 10px;
     left: 10px;
 }
+.pagination{
+    text-decoration: none;
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.uno {
+    float: right;
+    margin: auto;
+}
+.dos{
+    float: left;
+    margin: auto;
+}
 
 @media (max-height: 750px) {
     .market-row{
