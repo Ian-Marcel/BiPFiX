@@ -37,6 +37,10 @@ p, span, label {
 	font-family: Satoshi-Variable, sans-serif;
 	font-weight: 500;
 }
+hr{
+	border: 1px solid #333;
+	width: 90%;
+}
 
 /* DOCK MENU */
 #dock{
@@ -71,54 +75,59 @@ p, span, label {
 	place-items: center;
 }
 
-.transaction-content {
-    display: flex;
-    background-color: rgba(34, 34, 34, 0.80);
-    border-radius: 30px;
-    border: solid 1px #333;
-    color: white;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-}
-
-.user-info {
-    text-align: center;
-}
-
-.contact-btn-container {
+/* TRANSACAO */
+main{
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    border-radius: 1rem;
+	background-color: #1C1C1EFF;
+	border: solid 1px #333;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+	margin-top: 0%;
+	padding: 5px;
 }
-
-.contact-btn-container {
-    position: absolute;
-    top: 51.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+.users {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	width: 100%;
 }
-
-.contact-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007AFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.maker{
+	float: left;
+	text-align: left;
+	width: 49%;
 }
-.divider {
-    height: 2px;
-    width: 100%;
-    background-color: #fff;
-    margin: 20px 0;
+.maker h4 {
+	color: rgb(255, 14, 14);
+} 
+.taker {
+	float: right;
+	text-align: right;
+	width: 50%;
 }
-
-.order-info {
-    text-align: center;
+.taker h4 {
+	color: greenyellow;
+}
+.more_info {
+	min-height: 40%;
+	display: grid;
+	place-items: center;
+}
+.confirm {
+	margin-top: 10px;
+}
+.confirm a {
+	padding: 10px;
+    background-color: #007AFF ;
+	font-family: Montserrat-Variable, sans-serif;
+    font-weight: bolder;
+    transition: all linear 200ms ;
+	color: #E5E5EA;
+	border-radius: 5px;
+}
+.confirm a:hover {
+	background-color: #E5E5EA ;
+    color: #007AFF;
 }
