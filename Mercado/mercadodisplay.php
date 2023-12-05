@@ -16,7 +16,7 @@ function displayOrders($orderType, $currentPage) {
     global $pdo;
 
     try {
-        $numBlocks = 3; 
+        $numBlocks = 4; 
         $sql = "SELECT * FROM orders WHERE status = 'created' AND type = :type LIMIT :limit OFFSET :offset";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':type', $orderType, PDO::PARAM_STR);
@@ -33,8 +33,8 @@ function displayOrders($orderType, $currentPage) {
                             if ($i < count($orders)) {
                                 $valorBRL = $orders[$i]['v_brl'];
                                 $valorBTC = converterReaisParaSatoshis($valorBRL);
-                                echo '<span style="font-size: 20px;">' . round( $valorBRL / 190000 * 100000000 * (1 + ($orders[$i]['percentage'] / 100))) . ' Sats</span>' ;
-                                echo "<h3>Valor em R$: {$valorBRL}</h3>";
+                                echo '<h2>' . round( $valorBRL / 190000 * 100000000 * (1 + ($orders[$i]['percentage'] / 100))) . ' Sats</h2>' ;
+                                echo "<h3>R$ {$valorBRL}</h3>";
                                 echo "<h3>Bônus/Ônus: {$orders[$i]['percentage']}%</h3>";
                             }
                         echo "</div>";
