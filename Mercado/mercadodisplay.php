@@ -33,7 +33,7 @@ function displayOrders($orderType, $currentPage) {
                             if ($i < count($orders)) {
                                 $valorBRL = $orders[$i]['v_brl'];
                                 $valorBTC = converterReaisParaSatoshis($valorBRL);
-                                echo '<h2>' . round( $valorBRL / 190000 * 100000000 * (1 + ($orders[$i]['percentage'] / 100))) . ' Sats</h2>' ;
+                                echo '<h1>' . round( $valorBRL / 190000 * 100000000 * (1 + ($orders[$i]['percentage'] / 100))) . ' Sats</h1>' ;
                                 echo "<h3>R$ {$valorBRL}</h3>";
                                 echo "<h3>Bônus/Ônus: {$orders[$i]['percentage']}%</h3>";
                             }

@@ -46,6 +46,10 @@
         </header>
         
         <div class="mercado-status">
+        <div class="DDD">
+                <h1>190.000 BTC/R$</h1>
+                <h2>1 Satoshi = 0.00000001 BTC</h2>
+            </div>
             <div class="status-box">
                 <div class="status-header">
                     <h2>Você está:</h2>
