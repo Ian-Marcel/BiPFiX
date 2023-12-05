@@ -61,11 +61,11 @@
                 $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 0;
                 displayOrders('Compra', $currentPage);
             ?>
-                    <div  class="pagination">
+        <div  class="pagination">
         <?php if ($currentPage > 0): ?>
-            <a href="?page=<?php echo $currentPage - 1; ?>">Página Anterior</a>
+            <a class="dos" href="?page=<?php echo $currentPage - 1; ?>"><h3>Página Anterior</h3></a>
         <?php endif; ?>
-            <a href="?page=<?php echo $currentPage + 1; ?>">Próxima Página</a>
+            <a class="dos" href="?page=<?php echo $currentPage + 1; ?>"><h3>Próxima Página</h3></a>
         </div>
 </body>
 </html>
